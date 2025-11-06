@@ -1,0 +1,2437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate - Nicola Christanto - Project & Construction Management</title> <!-- Judul disesuaikan untuk Konstruksi -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KRCD6W30Y9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-KRCD6W30Y9');
+    </script>
+    <style>
+        /* Global Styles - Disesuaikan untuk tampilan maskulin */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color); /* Menggunakan variabel CSS untuk warna teks */
+            background: var(--background-gradient); /* Menggunakan variabel CSS untuk latar belakang */
+            min-height: 100vh;
+            transition: background 0.5s ease, color 0.5s ease; /* Transisi halus untuk perubahan mode */
+            scroll-behavior: smooth; /* Smooth scroll untuk seluruh halaman */
+        }
+
+        /* --- Mode Terang (Default) --- */
+        body {
+            --background-gradient: linear-gradient(135deg, #f0f2f5 0%, #e0e5ec 100%);
+            --header-bg: #FFFFFF;
+            --section-bg: rgba(255, 255, 255, 0.95);
+            --text-color: #333;
+            --heading-color: #2c3e50;
+            --subtitle-color: #7f8c8d;
+            --highlight-bg: linear-gradient(45deg, #BDC3C7, #ECF0F1);
+            --highlight-text: #2c3e50;
+            --highlight-border: #ff6b6b;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --stat-bg: linear-gradient(45deg, #2884a8, #1c6a8c);
+            --experience-bg: linear-gradient(135deg, #4A69BD 0%, #2A4893 100%);
+            --service-bg: linear-gradient(135deg, #1abc9c 0%, #2ecc71 100%);
+            --skill-bg: linear-gradient(45deg, #3498db, #2980b9);
+            --contact-item-bg: linear-gradient(135deg, #7F8C8D 0%, #95A5A6 100%);
+            --modal-bg: #fff;
+            --input-border: #ccc;
+            --input-focus-border: #3498db;
+            --message-box-success-bg: #d4edda;
+            --message-box-success-color: #155724;
+            --message-box-success-border: #c3e6cb;
+            --message-box-error-bg: #f8d7da;
+            --message-box-error-color: #721c24;
+            --message-box-error-border: #f5c6cb;
+            --profile-circle-bg: linear-gradient(45deg, #3498db, #2C3E50); /* tetap biru untuk foto profil */
+            --cv-button-bg: #E0E0E0; /* Warna latar belakang tombol CV di mode terang */
+            --cv-button-color: #2c3e50; /* Warna teks tombol CV di mode terang */
+            --advantage-card-bg: linear-gradient(135deg, #f0f2f5 0%, #e0e5ec 100%); /* Latar belakang kartu keuntungan */
+            --advantage-icon-color: #3498db; /* Warna ikon keuntungan */
+            
+            /* Warna Latar Belakang Kartu Strategi (Biru tua/abu-abu gelap di Light Mode) */
+            --strategy-card-solid-bg: #2C3E50; /* Biru tua/abu-abu gelap yang elegan */
+
+            /* Gradien untuk Garis Bergerak (Elegan di Light Mode) */
+            --glow-gradient: linear-gradient(90deg, #6495ED, #FF6F61, #6495ED); /* Cornflower Blue to Salmon */
+            
+            --navbar-bg: rgba(255, 255, 255, 0.9);
+            --navbar-text: #2c3e50;
+            --navbar-hover: #3498db;
+        }
+
+        /* --- Mode Gelap - Palet Warna Baru --- */
+        body.dark-mode {
+            --background-gradient: linear-gradient(135deg, #121212 0%, #1a1a1a 100%); /* Charcoal / Blackish */
+            --header-bg: #1e1e1e; /* Slightly lighter charcoal */
+            --section-bg: rgba(30, 30, 30, 0.95); /* Charcoal with transparency */
+            --text-color: #f0f0f0; /* Off-white for readability */
+            --heading-color: #f8f8f8; /* Brighter off-white for headings */
+            --subtitle-color: #b0b0b0; /* Light gray for subtitles */
+            --highlight-bg: linear-gradient(45deg, #3a3a3a, #4a4a4a); /* Darker gray gradient for highlights */
+            --highlight-text: #f8f8f8;
+            --highlight-border: #FF6B6B; /* Retain vibrant highlight border */
+            --shadow-color: rgba(0, 0, 0, 0.5); /* More pronounced shadow in dark mode */
+            
+            /* Interactive Elements & Cards (Adjusted for Dark Mode Contrast) */
+            --stat-bg: linear-gradient(45deg, #2a415a, #1a2a41); /* Darker blue-grey to deep blue */
+            --experience-bg: linear-gradient(135deg, #425b8a 0%, #2a3860 100%); /* More vibrant deep blue/purple */
+            --service-bg: linear-gradient(135deg, #1e8b74 0%, #29ab78 100%); /* Slightly brighter teal/green */
+            --skill-bg: linear-gradient(45deg, #3d8ed1, #2d6b9d); /* Brighter blue */
+            --contact-item-bg: linear-gradient(135deg, #5b6e82 0%, #6f8095 100%); /* Slightly brighter grayish blue */
+            
+            --modal-bg: #282828; /* Charcoal for modal */
+            --input-border: #666; /* Darker border for inputs */
+            --input-focus-border: #7abaff; /* Brighter blue focus for inputs */
+
+            /* Message Boxes (Adjusted for Dark Mode) */
+            --message-box-success-bg: rgba(40, 167, 69, 0.2); /* Subtle green tint */
+            --message-box-success-color: #28a745; /* Green text */
+            --message-box-success-border: #28a745;
+            --message-box-error-bg: rgba(220, 53, 69, 0.2); /* Subtle red tint */
+            --message-box-error-color: #dc3545; /* Red text */
+            --message-box-error-border: #dc3545;
+
+            --profile-circle-bg: linear-gradient(45deg, #3498db, #2C3E50); /* tetap biru untuk foto profil */
+            --cv-button-bg: #3a3a3a; /* Warna latar belakang tombol CV di mode gelap */
+            --cv-button-color: #f0f0f0; /* Warna teks tombol CV di mode gelap */
+            --advantage-card-bg: linear-gradient(135deg, #282828 0%, #303030 100%); /* Latar belakang kartu keuntungan */
+            --advantage-icon-color: #64B5F6; /* Warna ikon keuntungan di mode gelap */
+
+            /* Warna Latar Belakang Kartu Strategi (Hitam di Dark Mode) */
+            --strategy-card-solid-bg: #0A0A0A; /* Hitam murni */
+
+            /* Gradien untuk Garis Bergerak (Lebih Cerah di Dark Mode untuk Kontras) */
+            --glow-gradient: linear-gradient(90deg, #A742F7, #42E0FB, #A742F7); /* Purple, Cyan for glow */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--navbar-bg);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 10px var(--shadow-color);
+            z-index: 100; /* Pastikan di atas semua konten */
+            padding: 15px 20px;
+            text-align: center;
+            transition: background 0.5s ease, box-shadow 0.5s ease;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar ul li a {
+            color: var(--navbar-text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            padding: 5px 10px;
+            border-radius: 8px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+        .navbar ul li a:hover,
+        .navbar ul li a.active-nav { /* Gaya untuk link aktif */
+            color: var(--navbar-hover);
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Padding untuk Body agar tidak tertutup Navbar */
+        body {
+            padding-top: 80px; /* Sesuaikan dengan tinggi navbar */
+        }
+
+        /* Page Section Styling: Semua konten visible dan di-scroll */
+        .page-section { /* Mengganti .page-content dengan .page-section untuk kejelasan */
+            padding-top: 20px; /* Padding untuk setiap section agar tidak tertutup navbar saat scroll */
+            padding-bottom: 20px; /* Agar ada jarak antar section */
+            margin-bottom: 30px; /* Jarak antar section, sesuaikan jika perlu */
+        }
+
+
+        /* Header Section (Home Section) */
+        .header { /* Menggunakan .header sebagai id "home" */
+            background: var(--header-bg); /* Menggunakan variabel */
+            backdrop-filter: none; /* Menghilangkan efek blur */
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            /* margin-bottom: 30px; */ /* Dikelola oleh .page-section */
+            box-shadow: 0 20px 40px var(--shadow-color); /* Menggunakan variabel */
+            transition: transform 0.3s ease, background 0.5s ease, box-shadow 0.5s ease;
+            overflow: hidden;
+            position: relative; /* Diperlukan untuk penempatan tombol toggle */
+        }
+        .header:hover {
+            transform: translateY(-5px);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: var(--profile-circle-bg); /* Menggunakan variabel */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 60px;
+            color: white;
+            font-weight: bold;
+            overflow: hidden; /* Memastikan gambar pas di lingkaran */
+            /* Mikro-animasi: Putaran dan Bayangan saat hover */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .profile-img:hover {
+            transform: rotate(5deg) scale(1.05); /* Sedikit putaran dan zoom */
+            box-shadow: 0 0 25px var(--highlight-border); /* Glow warna highlight */
+        }
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Menutupi area, potong jika perlu */
+            border-radius: 50%; /* Memastikan gambar juga bulat */
+        }
+        .name {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--heading-color); /* Menggunakan variabel */
+            margin-bottom: 10px;
+        }
+        .title {
+            font-size: 1.3em;
+            color: var(--subtitle-color); /* Menggunakan variabel */
+            margin-bottom: 20px;
+        }
+
+        /* Powerfull Text for CTA Button */
+        .cta-power-text {
+            /* Pastikan teks ini juga inline-block untuk efek gradien */
+            display: inline-block; 
+            font-weight: bold; /* Tetap tebal */
+            font-size: 1.1em; /* Ukuran font yang sama seperti sebelumnya */
+
+            /* Efek Gradien Teks - Warna yang lebih kontras dan cerah */
+            background: linear-gradient(90deg, #FFFFFF, #B0E0E6, #87CEEB, #6495ED, #4169E1, #FFFFFF); /* Gradien putih ke biru */
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            
+            /* Menambahkan text-shadow untuk visibilitas yang lebih baik */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+
+            /* Animasi Aliran Warna */
+            animation: color-flow 4s linear infinite; /* Animasi yang sama */
+        }
+
+        @keyframes color-flow {
+            0% {
+                background-position: 0% 50%; /* Mulai dari kiri */
+            }
+            100% {
+                background-position: 100% 50%; /* Geser ke kanan */
+            }
+        }
+
+        .social-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .stat {
+            text-align: center;
+            padding: 15px;
+            background: var(--stat-bg); /* Menggunakan variabel */
+            color: white;
+            border-radius: 15px;
+            min-width: 120px;
+            transition: transform 0.3s ease, background 0.5s ease;
+        }
+        .stat:hover {
+            transform: scale(1.05);
+            /* Mikro-animasi tambahan */
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); /* Ringan */
+        }
+        .stat-number {
+            font-size: 1.8em;
+            font-weight: bold;
+            display: block;
+        }
+
+        /* Section General Styles */
+        .section {
+            background: var(--section-bg); /* Menggunakan variabel */
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px var(--shadow-color); /* Menggunakan variabel */
+            transition: transform 0.3s ease, background 0.5s ease, box-shadow 0.5s ease;
+        }
+        .section:hover {
+            transform: translateY(-3px);
+        }
+        .section-title {
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--heading-color); /* Menggunakan variabel */
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            /* Garis bawah judul section (biru/biru tua) */
+            background: linear-gradient(45deg, #3498db, #2C3E50);
+            border-radius: 2px;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            background: var(--experience-bg); /* Menggunakan variabel */
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
+        }
+        .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 30px var(--shadow-color); /* Menggunakan variabel */
+        }
+        .exp-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .exp-company {
+            font-size: 1.1em;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+        .exp-duration {
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-bottom: 15px;
+        }
+        .exp-description {
+            font-size: 1em;
+            line-height: 1.5;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .service-card {
+            background: var(--service-bg); /* Menggunakan variabel */
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px var(--shadow-color); /* Menggunakan variabel */
+        }
+        .service-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            /* Mikro-animasi ikon layanan */
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotate(5deg); /* Ikon sedikit berputar dan membesar */
+        }
+        .service-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .skill-tag {
+            background: var(--skill-bg); /* Menggunakan variabel */
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.3s ease, background 0.5s ease;
+        }
+        .skill-tag:hover {
+            transform: scale(1.1);
+            /* Mikro-animasi tambahan */
+            filter: brightness(1.2); /* Sedikit lebih cerah */
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        .contact-item {
+            background: var(--contact-item-bg); /* Menggunakan variabel */
+            color: var(--text-color); /* Menggunakan variabel */
+            padding: 25px;
+            border-radius: 15px;
+            transition: transform 0.3s ease, background 0.5s ease, color 0.5s ease, box-shadow 0.3s ease; /* Tambah box-shadow */
+            cursor: pointer; /* Menandakan item dapat diklik */
+        }
+        .contact-item:hover {
+            transform: translateY(-5px);
+            /* Mikro-animasi tambahan */
+            box-shadow: 0 8px 20px var(--shadow-color); /* Bayangan lebih jelas */
+        }
+        .contact-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        .contact-item a {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+        }
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: transparent; 
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px var(--shadow-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .social-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            .name {
+                font-size: 2em;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .cta-power-text {
+                font-size: 1em; /* Sesuaikan ukuran font untuk mobile agar tidak terlalu besar */
+            }
+        }
+
+        /* Highlight Box */
+        .highlight {
+            background: var(--highlight-bg); /* Menggunakan variabel */
+            color: var(--highlight-text); /* Menggunakan variabel */
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid var(--highlight-border); /* Menggunakan variabel */
+            transition: background 0.5s ease, color 0.5s ease;
+        }
+
+        /* Portfolio & Results Specific Styles */
+        .portfolio-project {
+            background: var(--header-bg); /* Menggunakan variabel (sama dengan header untuk konsistensi) */
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px var(--shadow-color); /* Menggunakan variabel */
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
+        }
+
+        @media (min-width: 768px) {
+            .portfolio-project {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+        }
+
+        .project-details {
+            flex: 1;
+        }
+
+        .project-title {
+            font-size: 1.8em;
+            color: var(--heading-color); /* Menggunakan variabel */
+            margin-bottom: 15px;
+        }
+
+        .project-description {
+            font-size: 1.1em;
+            color: var(--text-color); /* Menggunakan variabel */
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .project-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .stat-item {
+            background: linear-gradient(45deg, #27AE60 0%, #2ECC71 100%); /* Warna spesifik, tidak perlu variabel */
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            text-align: center;
+            flex: 1 1 auto;
+            min-width: 150px;
+        }
+
+        .stat-item .stat-number {
+            font-size: 1.6em;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-item .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .project-images {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            max-width: 600px;
+            margin-left: 20px;
+        }
+
+        @media (max-width: 767px) {
+            .project-images {
+                margin-left: 0;
+                max-width: 100%;
+            }
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow-color); /* Menggunakan variabel */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-image img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 20px var(--shadow-color); /* Menggunakan variabel */
+        }
+
+        /* Styles for the video showcase section */
+        .video-showcase-section {
+            background: var(--section-bg); /* Menggunakan variabel */
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px var(--shadow-color); /* Menggunakan variabel */
+            text-align: center;
+            transition: background 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .responsive-video-container {
+            position: relative;
+            width: 100%;
+            /* Asumsi 16:9 - Atur padding-bottom sesuai rasio aspek video Anda */
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio (height / width * 100) */
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            margin: 20px auto; /* Center the video container */
+            box-shadow: 0 10px 20px var(--shadow-color); /* Menggunakan variabel */
+        }
+
+        .responsive-video-container iframe,
+        .responsive-video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            object-fit: contain; /* Ensures the whole video is visible, scales down if needed */
+        }
+
+        /* Additional Photos Section */
+        .additional-photos-section .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust minmax as needed for 2-4 cols */
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .additional-photos-section .photo-item {
+            background: var(--header-bg); /* Latar belakang item foto */
+            border-radius: 10px;
+            padding: 15px; /* Tambahkan padding agar judul tidak terlalu mepet */
+            box-shadow: 0 5px 15px var(--shadow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
+            text-align: center; /* Pastikan teks judul di tengah */
+        }
+
+        .additional-photos-section .photo-item img {
+            width: 100%;
+            height: 350px; /* Same height as project images */
+            object-fit: cover;
+            border-radius: 8px; /* Sedikit lebih kecil dari item */
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05); /* Bayangan kecil pada gambar itu sendiri */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 10px; /* Jarak antara gambar dan judul */
+        }
+
+        .additional-photos-section .photo-item img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 20px var(--shadow-color); /* Menggunakan variabel */
+        }
+
+        .additional-photos-section .photo-item .photo-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--heading-color); /* Menggunakan warna heading untuk judul */
+            margin-top: 5px;
+            line-height: 1.4;
+        }
+
+        /* Marketing Strategy Section (Ultimate Service Advantages) */
+        .marketing-strategy-section .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+            perspective: 1000px; /* Aktifkan perspektif 3D untuk grid */
+        }
+
+        .marketing-strategy-section .strategy-card {
+            color: white; /* Teks kartu akan selalu putih untuk kontras dengan gradien */
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease; /* Tambah background-color transisi */
+            position: relative;
+            overflow: hidden; /* Penting untuk efek border */
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* Warna latar belakang kartu itu sendiri, transparan agar gradiennya terlihat */
+            background-color: var(--strategy-card-solid-bg); /* Menggunakan variabel warna solid hitam */
+            
+            transform-style: preserve-3d; /* Penting untuk anak-anaknya memiliki 3D transform */
+        }
+
+        /* Efek Border Gradien Bergerak */
+        .marketing-strategy-section .strategy-card::before {
+            content: '';
+            position: absolute;
+            /* Make it slightly larger than the card to act as the border */
+            top: 0px; /* Disesuaikan agar garis berada tepat di pinggir */
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            z-index: -1; /* Di belakang konten kartu */
+            border-radius: 20px; /* Match parent's border-radius */
+            background: var(--glow-gradient); /* The animated gradient */
+            background-size: 400% 400%; /* Large background for smooth animation */
+            filter: blur(0px); /* REMOVE BLUR - for sharp line */
+            opacity: 1; /* Always visible for a solid line, subtlety comes from gradient colors */
+            animation: animateGlow 6s linear infinite; /* Animation speed */
+            
+            /* KEY for "line" effect: mask the inner part of the ::before */
+            mask: linear-gradient(black, black) content-box, linear-gradient(black, black) border-box;
+            -webkit-mask: linear-gradient(black, black) content-box, linear-gradient(black, black) border-box; /* Webkit prefix */
+            mask-composite: exclude;
+            -webkit-mask-composite: exclude; /* Webkit prefix */
+            
+            /* Properti border untuk menciptakan ketebalan garis */
+            border: 2px solid transparent; /* Tambahkan border transparan di sini */
+        }
+
+        /* Definisi animasi untuk garis gradien bergerak di sekitar kartu */
+        @keyframes animateGlow {
+            0% { background-position: 0% 0%; }
+            25% { background-position: 100% 0%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+
+        .marketing-strategy-section .strategy-card:hover::before {
+            opacity: 1; /* Keep solid */
+            /* filter: blur(0px); */ /* No blur on hover either */
+        }
+
+        /* Warna Gradien untuk Setiap Kartu Keunggulan (latar belakang kartu itu sendiri) */
+        /* Ini adalah gradien yang akan terlihat DI ATAS efek glow border yang bergerak */
+        /* Hapus properti background: var(--strategy-card-gradient-X); dari sini */
+        /* karena kita menggunakan background-color: var(--strategy-card-solid-bg); di .strategy-card */
+
+        /* Penting: Teks dalam kartu tetap putih untuk kontras dengan gradien latar belakang kartu */
+        .marketing-strategy-section .strategy-card .strategy-icon,
+        .marketing-strategy-section .strategy-card .strategy-title,
+        .marketing-strategy-section .strategy-card .strategy-description {
+            color: white;
+            position: relative; /* Pastikan konten di atas pseudo-element border */
+            z-index: 2; /* Di atas pseudo-element border */
+            /* Transisi untuk properti transform pada ikon */
+            transition: transform 0.5s ease;
+        }
+
+
+        .marketing-strategy-section .strategy-card:hover {
+            transform: translateY(-8px) scale(1.03); /* Lebih tinggi dan zoom sedikit */
+            box-shadow: 0 15px 35px var(--shadow-color); /* Bayangan lebih dramatis */
+            filter: brightness(1.1); /* Sedikit lebih cerah saat hover */
+        }
+
+        .marketing-strategy-section .strategy-icon {
+            font-size: 3.5em; /* Ukuran ikon lebih besar */
+            margin-bottom: 15px;
+            color: white; /* Ikon akan putih karena latar belakang kartu berwarna */
+            /* Transisi 3D untuk ikon */
+            transform-style: preserve-3d;
+        }
+        .marketing-strategy-section .strategy-card:hover .strategy-icon {
+            transform: rotateY(360deg) scale(1.2); /* Ikon berputar dan sedikit membesar */
+        }
+
+        .strategy-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: white; /* Judul akan putih */
+            margin-bottom: 10px;
+        }
+
+        .strategy-description {
+            font-size: 0.95em;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.9); /* Deskripsi sedikit transparan putih */
+        }
+
+
+        /* Modal Styles for Contact Form */
+        dialog {
+            border: none;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 50px var(--shadow-color); /* Menggunakan variabel */
+            max-width: 500px;
+            width: 90%;
+            background: var(--modal-bg); /* Menggunakan variabel */
+            position: fixed; /* Ensures it stays in place */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            transition: opacity 0.3s ease, transform 0.3s ease; /* Transisi untuk modal */
+        }
+        dialog::backdrop {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+        }
+        dialog h3 {
+            color: var(--heading-color); /* Menggunakan variabel */
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-color); /* Menggunakan variabel */
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: calc(100% - 20px); /* Adjust for padding */
+            padding: 10px;
+            border: 1px solid var(--input-border); /* Menggunakan variabel */
+            border-radius: 8px;
+            font-size: 1em;
+            color: var(--text-color); /* Menggunakan variabel */
+            background: var(--header-bg); /* Menggunakan variabel untuk background input */
+            outline: none;
+            transition: border-color 0.3s ease, background 0.5s ease, color 0.5s ease;
+        }
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group textarea:focus {
+            border-color: var(--input-focus-border); /* Menggunakan variabel */
+        }
+        .form-group textarea {
+            resize: vertical; /* Allow vertical resizing */
+            min-height: 100px;
+        }
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+        }
+        .form-actions button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .form-actions button[type="submit"] {
+            background: linear-gradient(45deg, #27AE60, #2ECC71);
+            color: white;
+        }
+        .form-actions button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(46, 204, 113, 0.3);
+        }
+        .form-actions button[type="submit"]:disabled {
+            background: #cccccc; /* Warna abu-abu saat disabled */
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+        .form-actions button.close-button {
+            background: linear-gradient(45deg, #E74C3C, #C0392B);
+            color: white;
+        }
+        .form-actions button.close-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(192, 57, 43, 0.3);
+        }
+        .message-box {
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease;
+        }
+        .message-box.success {
+            background-color: var(--message-box-success-bg); /* Menggunakan variabel */
+            color: var(--message-box-success-color); /* Menggunakan variabel */
+            border: 1px solid var(--message-box-success-border); /* Menggunakan variabel */
+        }
+        .message-box.error {
+            background-color: var(--message-box-error-bg); /* Menggunakan variabel */
+            color: var(--message-box-error-color); /* Menggunakan variabel */
+            border: 1px solid var(--message-box-error-border); /* Menggunakan variabel */
+        }
+
+        /* Modal AI Styles (General) */
+        .ai-modal {
+            border: none;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 50px var(--shadow-color);
+            max-width: 600px;
+            width: 90%;
+            background: var(--modal-bg);
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9); /* Default scale for smooth entry */
+            opacity: 0; /* Default hidden */
+            z-index: 1000;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .ai-modal.show-modal { /* Class added by JS to show modal */
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .ai-modal::backdrop {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+        }
+        .ai-modal h3 {
+            color: var(--heading-color);
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+        .ai-results-area {
+            background: var(--section-bg);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            min-height: 100px;
+            max-height: 300px; /* Batasi tinggi area hasil */
+            overflow-y: auto; /* Aktifkan scrolling jika kontennya panjang */
+            border: 1px solid var(--input-border);
+            color: var(--text-color);
+            text-align: left; /* Biarkan teks hasil AI rata kiri */
+            white-space: pre-wrap; /* Pertahankan spasi dan baris baru */
+            word-wrap: break-word; /* Pastikan kata-kata panjang tidak keluar batas */
+            transition: background 0.5s ease, color 0.5s ease, border 0.5s ease;
+        }
+        .loading-indicator {
+            text-align: center;
+            margin-top: 15px;
+            font-style: italic;
+            color: var(--subtitle-color);
+        }
+
+
+        /* Mode Toggle Button */
+        .theme-toggle-button {
+            position: fixed; /* Ubah ke fixed agar tidak terikat pada header */
+            top: 20px;
+            right: 20px;
+            left: auto; /* Pastikan tidak ada konflik dari kiri */
+            bottom: auto; /* Pastikan tidak ada konflik dari bawah */
+            background: var(--section-bg);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            transition: background 0.5s ease, box-shadow 0.5s ease, transform 0.2s ease, color 0.5s ease;
+            font-size: 1.5em; /* Ukuran ikon */
+            color: var(--heading-color); /* Warna ikon */
+            z-index: 10; /* Pastikan di atas elemen lain */
+            /* Tambahan untuk draggable */
+            cursor: grab;
+            /* Pastikan tidak ada transform awal dari CSS jika JS akan mengelolanya */
+            transform: none; 
+        }
+
+        .theme-toggle-button:hover {
+            transform: scale(1.1);
+        }
+
+        .theme-toggle-button:active {
+            transform: scale(0.9);
+            cursor: grabbing;
+        }
+
+        /* Language Toggle Button (Shared class, adjusted position) */
+        #languageToggle {
+            right: 80px; /* Offset dari kanan agar di sebelah tombol tema */
+        }
+
+        /* CV Button */
+        #cvButton {
+            position: fixed; /* Ubah ke fixed agar tidak terikat pada header */
+            top: 20px; /* Pindahkan ke atas (kanan atas, bersama tombol tema) */
+            left: 20px;
+            right: auto; /* Pastikan tidak ada konflik dari kanan */
+            bottom: auto; /* Pastikan tidak ada konflik dari bawah */
+            background: var(--cv-button-bg); /* Menggunakan variabel */
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            transition: background 0.5s ease, box-shadow 0.5s ease, transform 0.2s ease, color 0.5s ease;
+            font-size: 1em; /* Ukuran teks/ikon */
+            font-weight: bold;
+            color: var(--cv-button-color); /* Menggunakan variabel */
+            text-decoration: none; /* Hilangkan underline karena ini link */
+            z-index: 10;
+        }
+
+        #cvButton:hover {
+            transform: scale(1.1);
+        }
+
+        #cvButton:active {
+            transform: scale(0.9);
+        }
+
+        /* Responsif untuk tombol CV dan Toggle */
+        @media (max-width: 768px) {
+            #cvButton {
+                top: 10px;
+                left: 10px;
+                width: 40px;
+                height: 40px;
+                font-size: 0.8em;
+            }
+            .theme-toggle-button {
+                top: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2em;
+            }
+            #languageToggle {
+                right: 60px; /* Offset yang disesuaikan untuk layar kecil */
+                top: 10px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2em;
+            }
+        }
+
+        /* Scroll to Top Button */
+        #scrollToTopBtn {
+            display: none; /* Tersembunyi secara default */
+            position: fixed; /* Posisi tetap */
+            bottom: 30px; /* Jarak dari bawah */
+            right: 30px; /* Jarak dari kanan */
+            z-index: 99; /* Pastikan di atas yang lain */
+            border: none; /* Hilangkan border */
+            outline: none; /* Hilangkan outline */
+            background-color: var(--skill-bg); /* Warna latar belakang */
+            color: white; /* Warna teks/ikon */
+            cursor: pointer; /* Pointer mouse saat hover */
+            padding: 15px; /* Padding */
+            border-radius: 50%; /* Bentuk lingkaran */
+            font-size: 24px; /* Ukuran ikon */
+            box-shadow: 0 4px 12px var(--shadow-color); /* Bayangan */
+            transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: var(--skill-bg); /* Warna sedikit lebih gelap saat hover */
+            transform: translateY(-3px); /* Efek melayang */
+        }
+
+        /* Responsif untuk tombol scroll to top */
+        @media (max-width: 768px) {
+            #scrollToTopBtn {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px;
+                font-size: 20px;
+            }
+        }
+
+        /* Custom Styles for AI buttons inside the portfolio section */
+        .ai-enhancer-button {
+            background: linear-gradient(45deg, #1abc9c, #16a085);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            margin-top: 15px;
+            display: inline-block;
+        }
+
+        .ai-enhancer-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(26, 188, 156, 0.3);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="#home-section" data-page="home-section" data-lang-key="nav_home">Home</a></li>
+                <li><a href="#about-section" data-page="about-section" data-lang-key="nav_about">Tentang Saya</a></li>
+                <li><a href="#portfolio-section" data-page="portfolio-section" data-lang-key="nav_portfolio">Portofolio Proyek</a></li>
+                <li><a href="#advantages-section" data-page="advantages-section" data-lang-key="nav_advantages">Keunggulan Layanan</a></li>
+                <li><a href="#services-section" data-page="services-section" data-lang-key="nav_specialization">Spesialisasi</a></li>
+                <li><a href="#contact-section" data-page="contact-section" data-lang-key="nav_contact">Hubungi Kami</a></li>
+            </ul>
+        </nav>
+
+        <!-- Home Page Content -->
+        <div id="home-section" class="page-section">
+            <!-- Header Section -->
+            <div class="header">
+                <!-- CV Button -->
+                <a href="your-cv-document.pdf" id="cvButton" target="_blank" title="Lihat CV Saya" data-lang-key="btn_view_cv">CV</a>
+
+                <!-- Language Toggle Button (New Position) -->
+                <button id="languageToggle" class="theme-toggle-button" style="right: 80px; left: auto; top: 20px;">
+                    🇬🇧
+                </button>
+
+                <!-- Mode Toggle Button (Original Position) -->
+                <button id="themeToggle" class="theme-toggle-button">
+                    ☀️ <!-- Ikon default: Matahari (mode terang) -->
+                </button>
+
+                <div class="profile-img">
+                    <!-- PLACE YOUR PROFILE PHOTO URL HERE -->
+                    <!-- Pastikan Anda mengganti URL di bawah ini dengan foto Anda sendiri -->
+                    <img src="https://placehold.co/150x150/3498db/ffffff?text=NC" onerror="this.onerror=null;this.src='foto02.jpeg';" alt="Nicola Christanto Profile Photo">
+                </div>
+                <h1 class="name">Nicola Christanto</h1> <!-- Nama disesuaikan dengan resume -->
+                <p class="title" data-lang-key="title_main">Production & Quality Control Specialist | Construction & Project Manager</p>
+                <p style="color: var(--subtitle-color); font-size: 1.1em; margin: 10px 0;" data-lang-key="title_subtitle">Profesional berorientasi hasil dengan keahlian teknis dalam 3DCP, Quality Control, dan Manajemen Proyek.</p>
+
+                <div class="social-stats">
+                    <div class="stat">
+                        <span class="stat-number" data-lang-key="stat1_num">10+</span>
+                        <span data-lang-key="stat1_label">Proyek Selesai</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-lang-key="stat2_num">4+</span>
+                        <span data-lang-key="stat2_label">Tahun Pengalaman Teknis</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-lang-key="stat3_num">3DCP</span>
+                        <span data-lang-key="stat3_label">Teknologi Inti</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Me Page Content -->
+        <div id="about-section" class="page-section">
+            <!-- About Section -->
+            <div class="section">
+                <h2 class="section-title" data-lang-key="about_title">Tentang Saya</h2>
+                <p style="font-size: 1.1em; color: var(--text-color); line-height: 1.8;" data-lang-key="about_body">
+                    Sebagai seorang profesional yang berorientasi pada hasil, saya memiliki pengalaman solid di bidang manufaktur, operasional teknis, dan manajemen proyek. Saya terampil mengoperasikan mesin presisi (CNC, 3DCP, freeze dryer), mengawasi kontrol kualitas, dan memimpin tim. Latar belakang pendidikan Manajemen dan pengalaman langsung dalam strategi konten, periklanan TikTok, dan analisis algoritma menjadikan saya aset berharga dalam setiap proyek. Layanan premium saya berfokus pada penyampaian hasil proyek yang efisien, kualitas konstruksi yang unggul, dan kepuasan klien yang maksimal.
+                </p>
+
+                <div class="highlight">
+                    <strong data-lang-key="about_key_skill_title">🏆 Keahlian Utama:</strong> <span data-lang-key="about_key_skill_desc">Memimpin operasi 3D Concrete Printing, mengelola rantai pasok material, dan memastikan implementasi standar kualitas yang ketat pada proyek konstruksi, didukung pengalaman Quality Control yang mendalam.</span>
+                </div>
+            </div>
+
+            <!-- Experience Section - Konten disesuaikan dengan update resume -->
+            <div class="section">
+                <h2 class="section-title" data-lang-key="exp_title_main">Pengalaman Profesional</h2>
+
+                <!-- Pengalaman terbaru disesuaikan dengan resume -->
+                <div class="experience-item">
+                    <div class="exp-title" data-lang-key="exp1_title">Operator Leader</div>
+                    <div class="exp-company" data-lang-key="exp1_company">Legends 3D (Tabanan, Bali)</div>
+                    <div class="exp-duration" data-lang-key="exp1_duration">Mei 2025 - Sekarang</div>
+                    <div class="exp-description" data-lang-key="exp1_desc">
+                        • Mengelola seluruh siklus proyek 3DCP, mulai dari persiapan lokasi, pengaturan mesin, hingga tahap akhir.<br>
+                        • Bertanggung jawab atas manajemen sumber daya dan pelaporan kemajuan proyek secara berkala.
+                    </div>
+                </div>
+
+                <!-- Pengalaman terbaru disesuaikan dengan resume -->
+                <div class="experience-item">
+                    <div class="exp-title" data-lang-key="exp2_title">Freeze Dryer Technician & Quality Control (Part-Time)</div>
+                    <div class="exp-company" data-lang-key="exp2_company">Suplemen Organik</div>
+                    <div class="exp-duration" data-lang-key="exp2_duration">November 2024 - Februari 2025</div>
+                    <div class="exp-description" data-lang-key="exp2_desc">
+                        • Mengoperasikan mesin freeze drying untuk memastikan konsistensi, keamanan, dan standar premium produk.<br>
+                        • Melakukan inspeksi produk dan pemeliharaan rutin peralatan.
+                    </div>
+                </div>
+
+                <!-- Pengalaman terbaru disesuaikan dengan resume -->
+                <div class="experience-item">
+                    <div class="exp-title" data-lang-key="exp3_title">Freelance Social Media Marketer</div>
+                    <div class="exp-company" data-lang-key="exp3_company">Klien Bervariasi</div>
+                    <div class="exp-duration" data-lang-key="exp3_duration">Agustus 2024 - Maret 2025</div>
+                    <div class="exp-description" data-lang-key="exp3_desc">
+                        • Mengunggah konten TikTok 3 kali sehari dengan *caption* dan *hashtag* yang relevan, fokus pada strategi *engagement* dan pertumbuhan.
+                    </div>
+                </div>
+                
+                <!-- Pengalaman terbaru disesuaikan dengan resume -->
+                <div class="experience-item">
+                    <div class="exp-title" data-lang-key="exp4_title">Operator - 3D Print Service Provider</div>
+                    <div class="exp-company" data-lang-key="exp4_company">PT. Basic Element Space (Tabanan, Bali)</div>
+                    <div class="exp-duration" data-lang-key="exp4_duration">Juni 2024 - Februari 2025</div>
+                    <div class="exp-description" data-lang-key="exp4_desc">Mengoperasikan mesin cetak 3D dan membantu perakitan, instalasi, pemeliharaan, dan pengujian untuk memenuhi standar kualitas perusahaan.</div>
+                </div>
+
+                 <!-- Pengalaman terbaru disesuaikan dengan resume -->
+                <div class="experience-item">
+                    <div class="exp-title" data-lang-key="exp5_title">Quality Control</div>
+                    <div class="exp-company" data-lang-key="exp5_company">PT. Atsumitec Indonesia (Karawang, Jawa Barat)</div>
+                    <div class="exp-duration" data-lang-key="exp5_duration">Juni 2023 - Mei 2024</div>
+                    <div class="exp-description" data-lang-key="exp5_desc">
+                        • Melakukan inspeksi kualitas pada komponen otomotif dan mendokumentasikan ketidaksesuaian.<br>
+                        • Berkoordinasi dengan bagian produksi untuk menerapkan tindakan korektif.
+                    </div>
+                </div>
+
+                <!-- Pengalaman terbaru disesuaikan dengan resume -->
+                <div class="experience-item">
+                    <div class="exp-title" data-lang-key="exp6_title">Machining, Welding, and Painting Specialist</div>
+                    <div class="exp-company" data-lang-key="exp6_company">PT. Astra Honda Motor (Karawang, Jawa Barat)</div>
+                    <div class="exp-duration" data-lang-key="exp6_duration">Desember 2019 - Maret 2023</div>
+                    <div class="exp-description" data-lang-key="exp6_desc">Mengoperasikan mesin CNC, sistem pengelasan robotik, dan sistem pengecatan robotik semi-otomatis untuk memproduksi komponen sepeda motor.</div>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Portfolio Page Content -->
+        <div id="portfolio-section" class="page-section">
+            <!-- Portfolio & Real Results Section - Ini adalah versi Standard -->
+            <div class="section">
+                <h2 class="section-title" data-lang-key="port_title_main">Portofolio Proyek Konstruksi</h2>
+                <p style="text-align: center; font-size: 1.1em; color: var(--text-color); margin-bottom: 40px;" data-lang-key="port_subtitle">
+                    Menampilkan detail proyek konstruksi, implementasi teknologi, dan hasil akhir yang terjamin kualitasnya.
+                </p>
+                <!-- Tombol AI Project Enhancer diletakkan di sini -->
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <button id="enhanceProjectTriggerBtn" class="ai-enhancer-button" data-lang-key="btn_ai_enhancer">
+                        Tingkatkan Deskripsi Proyek dengan AI 💡
+                    </button>
+                </div>
+
+                <!-- Proyek 1: Pembangunan Villa Bali (Aplikasi 3DCP) -->
+                <div class="portfolio-project">
+                    <div class="project-details">
+                        <h3 class="project-title" data-lang-key="proj1_title">🏡 Proyek Pembangunan Villa Modern Bali (3DCP)</h3>
+                        <p class="project-description" data-lang-key="proj1_desc">
+                            Memimpin tim operator dalam pembangunan villa menggunakan teknologi 3D Concrete Printing (3DCP). Proyek ini menyoroti efisiensi waktu, presisi struktural yang tinggi, dan inovasi dalam penggunaan material. Mengelola seluruh proses mulai dari kalibrasi mesin hingga pengawasan *finishing* untuk memastikan kualitas superior.
+                        </p>
+                        <div class="project-stats">
+                            <div class="stat-item">
+                                <span class="stat-number" data-lang-key="proj1_stat1_num">98%</span>
+                                <span class="stat-label" data-lang-key="proj1_stat1_label">Tingkat Akurasi QC</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-lang-key="proj1_stat2_num">30%</span>
+                                <span class="stat-label" data-lang-key="proj1_stat2_label">Penghematan Waktu (Vs. Konvensional)</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-lang-key="proj1_stat3_num">4 Mggu</span>
+                                <span class="stat-label" data-lang-key="proj1_stat3_label">Durasi Pencetakan Struktur</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-images">
+                        <div class="project-image">
+                            <!-- Placeholder Image for Project 1 - 3DCP Villa Exterior -->
+                            <img loading="lazy" src="https://placehold.co/350x350/F0F0F0/B0B0B0?text=3DCP+Project+1" onerror="this.onerror=null;this.src='3dcp_proj1.jpeg';" alt="Proyek Villa 3D Concrete Printing">
+                        </div>
+                        <div class="project-image">
+                            <!-- Placeholder Image for Project 1 - Machine Setup -->
+                            <img loading="lazy" src="https://placehold.co/350x350/F0F0F0/B0B0B0?text=3DCP+Process" onerror="this.onerror=null;this.src='3dcp_process.jpeg';" alt="Proses Mesin 3DCP">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyek 2: Pengawasan Kualitas Produksi Komponen Otomotif -->
+                <div class="portfolio-project">
+                    <div class="project-details">
+                        <h3 class="project-title" data-lang-key="proj2_title">⚙️ Quality Control Manufaktur Otomotif</h3>
+                        <p class="project-description" data-lang-key="proj2_desc">
+                            Bertanggung jawab sebagai Quality Control di PT. Atsumitec Indonesia, berfokus pada inspeksi komponen otomotif dan dokumentasi non-konformitas. Menerapkan protokol inspeksi yang ketat, termasuk penggunaan alat ukur presisi dan analisis data untuk memastikan setiap komponen memenuhi standar industri yang tinggi. Keberhasilan dalam meminimalkan cacat produksi.
+                        </p>
+                        <div class="project-stats">
+                            <div class="stat-item">
+                                <span class="stat-number" data-lang-key="proj2_stat1_num">0.05%</span>
+                                <span class="stat-label" data-lang-key="proj2_stat1_label">Defect Rate (Minimum)</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-lang-key="proj2_stat2_num">6 Bln</span>
+                                <span class="stat-label" data-lang-key="proj2_stat2_label">Periode Tanpa Kegagalan Audit</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-lang-key="proj2_stat3_num">ISO 9001</span>
+                                <span class="stat-label" data-lang-key="proj2_stat3_label">Standar QC Diterapkan</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-images">
+                        <div class="project-image">
+                            <!-- Placeholder Image for Project 2 - QC Process -->
+                            <img loading="lazy" src="https://placehold.co/350x350/F0F0F0/B0B0B0?text=QC+Process" onerror="this.onerror=null;this.src='qc_insp.jpeg';" alt="Proses Quality Control Otomotif">
+                        </div>
+                        <div class="project-image">
+                            <!-- Placeholder Image for Project 2 - Machining -->
+                            <img loading="lazy" src="https://placehold.co/350x350/F0F0F0/B0B0B0?text=Machining+Part" onerror="this.onerror=null;this.src='machining.jpeg';" alt="Komponen Machining">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Showcase Section -->
+            <div class="section video-showcase-section">
+                <h2 class="section-title" data-lang-key="video_title">Video Proses Kerja</h2>
+                <p style="font-size: 1.1em; color: var(--text-color); margin-bottom: 20px;" data-lang-key="video_subtitle">
+                    Lihat demonstrasi video keahlian teknis seperti pengoperasian 3DCP, CNC, atau inspeksi QC.
+                </p>
+                <div class="responsive-video-container">
+                    <!-- TEMPATKAN KODE EMBED VIDEO ANDA DI SINI (Contoh: Proses 3D Printing) -->
+                    <video loading="lazy" controls> <!-- Lazy Loading diterapkan -->
+                        <source src="vid01.mp4" type="video/mp4">
+                        Peramban Anda tidak mendukung tag video.
+                    </video>
+                </div>
+                <p style="font-size: 0.9em; color: var(--subtitle-color); margin-top: 15px;" data-lang-key="video_note">
+                    *Pastikan video yang diunggah ke GitHub berukuran kecil untuk kinerja web terbaik. Untuk video yang lebih besar, disarankan menggunakan YouTube atau Vimeo.
+                </p>
+            </div>
+
+            <!-- Additional Photos Section (Technical Context) -->
+            <div class="section additional-photos-section">
+                <h2 class="section-title" data-lang-key="visual_title_main">Visual & Wawasan Proyek</h2>
+                <p style="text-align: center; font-size: 1.1em; color: var(--text-color); margin-bottom: 20px;" data-lang-key="visual_subtitle">
+                    Jelajahi aset visual tambahan dan wawasan kunci dari berbagai proyek teknis.
+                </p>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <!-- Lazy Loading diterapkan -->
+                        <img loading="lazy" src="https://placehold.co/350x350/F0F0F0/B0B0B0?text=Photo+5" onerror="this.onerror=null;this.src='bawah01.jpeg';" alt="3DCP Material Preparation">
+                        <p class="photo-title" data-lang-key="visual_item1">Persiapan Material 3DCP</p> <!-- Judul disesuaikan -->
+                    </div>
+                    <div class="photo-item">
+                        <!-- Lazy Loading diterapkan -->
+                        <img loading="lazy" src="https://placehold.co/350x350/F0F0F0/B0B0B0?text=Photo+6" onerror="this.onerror=null;this.src='bawah02.jpeg';" alt="CNC Machine Operation">
+                        <p class="photo-title" data-lang-key="visual_item2">Operasi Mesin CNC</p> <!-- Judul disesuaikan -->
+                    </div>
+                    <div class="photo-item">
+                        <!-- Lazy Loading diterapkan -->
+                        <img loading="lazy" src="https://placehold.co/350x350/F0F0F0/B0B0B0?text=Photo+7" onerror="this.onerror=null;this.src='bawah03.jpeg';" alt="Welding Robotics">
+                        <p class="photo-title" data-lang-key="visual_item3">Sistem Pengelasan Robotik</p> <!-- Judul disesuaikan -->
+                    </div>
+                    <div class="photo-item">
+                        <!-- Lazy Loading diterapkan -->
+                        <img loading="lazy" src="https://placehold.co/350x350/F0F0F0/B0B0B0?text=Photo+8" onerror="this.onerror=null;this.src='bawah04.jpeg';" alt="Final Quality Check">
+                        <p class="photo-title" data-lang-key="visual_item4">Laporan Quality Check Akhir</p> <!-- Judul disesuaikan -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advantages Page Content -->
+        <div id="advantages-section" class="page-section">
+            <!-- Marketing Strategy Section (Ultimate Service Advantages) -->
+            <div class="section marketing-strategy-section">
+                <h2 class="section-title" data-lang-key="adv_title_main">Keunggulan Layanan & Nilai Jual Kami</h2>
+                <p style="text-align: center; font-size: 1.1em; color: var(--text-color); margin-bottom: 20px;" data-lang-key="adv_subtitle">
+                    Pilih jasa kami untuk memastikan proyek konstruksi Anda berjalan efisien, inovatif, dan memenuhi standar kualitas tertinggi.
+                </p>
+                <div class="strategy-grid">
+                    <div class="strategy-card">
+                        <div class="strategy-icon">🏗️</div>
+                        <div class="strategy-title" data-lang-key="adv1_title">Inovasi Konstruksi (3DCP)</div>
+                        <div class="strategy-description" data-lang-key="adv1_desc">Penerapan teknologi 3D Concrete Printing untuk konstruksi yang lebih cepat, lebih presisi, dan lebih hemat biaya dibandingkan metode konvensional.</div>
+                    </div>
+                    <div class="strategy-card">
+                        <div class="strategy-icon">✅</div>
+                        <div class="strategy-title" data-lang-key="adv2_title">Jaminan Kontrol Kualitas</div>
+                        <div class="strategy-description" data-lang-key="adv2_desc">Mengadopsi standar QC manufaktur yang ketat (seperti otomotif) ke dalam proses konstruksi, memastikan produk akhir memiliki durabilitas dan akurasi yang superior.</div>
+                    </div>
+                    <div class="strategy-card">
+                        <div class="strategy-icon">⏱️</div>
+                        <div class="strategy-title" data-lang-key="adv3_title">Efisiensi Proyek Terukur</div>
+                        <div class="strategy-description" data-lang-key="adv3_desc">Fokus pada manajemen waktu dan sumber daya yang terstruktur untuk menjamin proyek selesai tepat waktu dan sesuai anggaran yang telah ditetapkan.</div>
+                    </div>
+                    <div class="strategy-card">
+                        <div class="strategy-icon">💼</div>
+                        <div class="strategy-title" data-lang-key="adv4_title">Manajemen Lintas Disiplin</div>
+                        <div class="strategy-description" data-lang-key="adv4_desc">Keahlian gabungan dalam operasional teknis (machining, welding) dan manajemen bisnis memberikan perspektif holistik untuk memecahkan masalah proyek yang kompleks.</div>
+                    </div>
+                    <div class="strategy-card">
+                        <div class="strategy-icon">💰</div>
+                        <div class="strategy-title" data-lang-key="adv5_title">Fleksibilitas Anggaran</div>
+                        <div class="strategy-description" data-lang-key="adv5_desc">Kami menawarkan skema proyek yang fleksibel dan transparan. Konsultasikan kebutuhan Anda untuk mendapatkan penawaran terbaik dan estimasi waktu yang jelas.</div>
+                    </div>
+                    <div class="strategy-card">
+                        <div class="strategy-icon">🌐</div>
+                        <div class="strategy-title" data-lang-key="adv6_title">Kemampuan Adaptasi Pasar</div>
+                        <div class="strategy-description" data-lang-key="adv6_desc">Dilengkapi dengan kemampuan analisis tren (dari latar belakang SMM) untuk memastikan proyek Anda tidak hanya teknis solid, tetapi juga relevan dengan pasar properti dan tren desain saat ini.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Page Content -->
+        <div id="services-section" class="page-section">
+            <!-- Services Section -->
+            <div class="section">
+                <h2 class="section-title" data-lang-key="services_title_main">Spesialisasi Teknis & Layanan</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🏗️</div>
+                        <div class="service-title" data-lang-key="serv1_title">Operasi 3D Concrete Printing (3DCP)</div>
+                        <p data-lang-key="serv1_desc">Layanan penuh mulai dari desain cetak, persiapan *mix* material, pengoperasian mesin, hingga perakitan struktur. Kami adalah ahli di bidang teknologi ini.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">📐</div>
+                        <div class="service-title" data-lang-key="serv2_title">Manajemen dan Pengawasan QC</div>
+                        <p data-lang-key="serv2_desc">Pengawasan kualitas menyeluruh untuk setiap tahap konstruksi atau manufaktur, memastikan akurasi dimensi, kekuatan material, dan kepatuhan standar.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">📅</div>
+                        <div class="service-title" data-lang-key="serv3_title">Perencanaan & Eksekusi Proyek</div>
+                        <p data-lang-key="serv3_desc">Perencanaan jadwal, alokasi sumber daya, dan pengawasan eksekusi di lapangan untuk menjamin proyek berjalan mulus dan efisien.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🏭</div>
+                        <div class="service-title" data-lang-key="serv4_title">Keahlian Mesin Presisi</div>
+                        <p data-lang-key="serv4_desc">Memberikan konsultasi dan solusi untuk pengoperasian dan perawatan mesin-mesin industri seperti CNC, welding robotik, dan sistem pengecatan otomatis.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">📈</div>
+                        <div class="service-title" data-lang-key="serv5_title">Efisiensi Biaya Proyek</div>
+                        <p data-lang-key="serv5_desc">Menganalisis proses kerja untuk mengidentifikasi dan mengurangi biaya operasional tanpa mengorbankan kualitas dan *timeline* proyek.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Section -->
+            <div class="section">
+                <h2 class="section-title" data-lang-key="skills_title_main">Keahlian Inti & Spesialisasi</h2>
+                <div class="skills-container">
+                    <span class="skill-tag" data-lang-key="skill1">3D Concrete Printing (3DCP)</span>
+                    <span class="skill-tag" data-lang-key="skill2">Quality Control (QC)</span>
+                    <span class="skill-tag" data-lang-key="skill3">Project Management</span>
+                    <span class="skill-tag" data-lang-key="skill4">CNC Operation</span>
+                    <span class="skill-tag" data-lang-key="skill5">Robotic Welding & Painting</span>
+                    <span class="skill-tag" data-lang-key="skill6">Material Procurement</span>
+                    <span class="skill-tag" data-lang-key="skill7">Freeze Dry Technology</span>
+                    <span class="skill-tag" data-lang-key="skill8">Manajemen Tim Lapangan</span>
+                    <span class="skill-tag" data-lang-key="skill9">Business Strategy</span>
+                    <span class="skill-tag" data-lang-key="skill10">Problem Solving Teknis</span>
+                    <span class="skill-tag" data-lang-key="skill11">Data Analysis (Social Media & QC)</span>
+                    <span class="skill-tag" data-lang-key="skill12">ISO Standards Compliance</span>
+                </div>
+                <!-- New AI Button for Technical Consultant -->
+                <div style="text-align: center; margin-top: 30px;">
+                    <button id="aiConsultantTriggerBtn" class="ai-enhancer-button" data-lang-key="btn_ai_consultant">
+                        Konsultan Teknis AI Cepat 🛠️
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Page Content -->
+        <div id="contact-section" class="page-section">
+            <!-- Contact Section -->
+            <div class="section">
+                <h2 class="section-title" data-lang-key="contact_title_main">Mari Berkolaborasi!</h2>
+                <p style="text-align: center; font-size: 1.2em; color: var(--text-color); margin-bottom: 30px;" data-lang-key="contact_subtitle">
+                    Siap memulai proyek konstruksi inovatif atau meningkatkan efisiensi operasional Anda? Hubungi saya hari ini.
+                </p>
+                <div class="contact-info">
+                    <div class="contact-item" id="emailContactTrigger"> <!-- ID ditambahkan untuk JavaScript -->
+                        <div class="contact-icon">📧</div>
+                        <h3 data-lang-key="contact_email_title">Email</h3>
+                        <p data-lang-key="contact_email_desc">Kirim Pesan (Formulir)</p> <!-- Teks diubah untuk mengindikasikan form -->
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💼</div>
+                        <h3 data-lang-key="contact_linkedin_title">LinkedIn</h3>
+                        <p><a href="https://linkedin.com/in/nicolachristanto" target="_blank" rel="noopener noreferrer" data-lang-key="contact_linkedin_desc">linkedin.com/in/nicolachristanto</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <a href="https://wa.me/62895329813921" target="_blank" rel="noopener noreferrer">
+                            <div class="contact-icon">📱</div>
+                            <h3 data-lang-key="contact_whatsapp_title">WhatsApp</h3>
+                            <p data-lang-key="contact_whatsapp_desc">0895329813921</p>
+                        </a>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <a href="https://wa.me/62895329813921" class="cta-button" target="_blank" rel="noopener noreferrer">
+                        <span class="cta-power-text" data-lang-key="btn_cta_contact">Diskusikan Proyek Anda Sekarang</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Form Modal (Premium Feature) -->
+    <dialog id="contactFormModal">
+        <h3 data-lang-key="modal_contact_title">Hubungi Kami</h3> <!-- Judul modal dalam Bahasa Indonesia -->
+        <!-- Form action updated for Formspree and method set to POST -->
+        <form id="contactForm" action="https://formspree.io/f/xpwryzrz" method="POST">
+            <div class="form-group">
+                <label for="name" data-lang-key="modal_form_name">Nama Lengkap:</label> <!-- Label diubah ke Bahasa Indonesia -->
+                <!-- Added 'name' attribute for Formspree -->
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email" data-lang-key="modal_form_email">Email Anda:</label> <!-- Label diubah ke Bahasa Indonesia -->
+                <!-- Added 'name' attribute for Formspree -->
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="subject" data-lang-key="modal_form_subject">Subjek:</label> <!-- Label diubah ke Bahasa Indonesia -->
+                <!-- Added 'name' attribute for Formspree -->
+                <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+                <label for="message" data-lang-key="modal_form_message">Pesan Anda:</label> <!-- Label diubah ke Bahasa Indonesia -->
+                <!-- Added 'name' attribute for Formspree -->
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <div class="form-actions">
+                <button type="submit" data-lang-key="modal_form_submit">Kirim Pesan</button> <!-- Teks tombol diubah ke Bahasa Indonesia -->
+                <button type="button" class="close-button" id="closeModal" data-lang-key="modal_form_cancel">Batal</button> <!-- Teks tombol diubah ke Bahasa Indonesia -->
+            </div>
+            <div id="formMessage" class="message-box" style="display: none;"></div>
+        </form>
+    </dialog>
+
+    <!-- Lightbox Modal for Images (No major language keys needed) -->
+    <dialog id="imageLightbox" class="lightbox-modal">
+        <button class="lightbox-close-btn">&times;</button>
+        <img class="lightbox-img" src="" alt="Full size image">
+        <button class="lightbox-prev-btn">&larr;</button>
+        <button class="lightbox-next-btn">&rarr;</button>
+    </dialog>
+
+    <!-- AI Project Enhancer Modal (Modal utama untuk membantu deskripsi proyek) -->
+    <dialog id="projectEnhancerModal" class="ai-modal">
+        <h3 data-lang-key="modal_ai_title">Tingkatkan Deskripsi Proyek dengan AI ✨</h3>
+        <p style="color: var(--subtitle-color); margin-bottom: 20px;" data-lang-key="modal_ai_subtitle">
+            Masukkan deskripsi proyek singkat, dan AI akan membuatnya lebih profesional dan persuasif.
+        </p>
+        <div class="form-group">
+            <label for="projectDescriptionInput" data-lang-key="modal_ai_desc_label">Deskripsi Proyek Saat Ini:</label>
+            <textarea id="projectDescriptionInput" placeholder="Contoh: Saya membangun villa di Bali menggunakan 3D printing, selesai dalam 4 minggu." rows="5" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="desiredToneInput" data-lang-key="modal_ai_tone_label">Nada yang Diinginkan (Opsional):</label>
+            <input type="text" id="desiredToneInput" placeholder="Contoh: profesional, berorientasi hasil, inovatif, ringkas">
+        </div>
+        <div class="form-actions">
+            <button id="enhanceDescriptionBtn" data-lang-key="modal_ai_enhance_btn">Tingkatkan Deskripsi ✨</button>
+            <button type="button" class="close-button" id="closeEnhancerModal" data-lang-key="modal_ai_cancel">Batal</button>
+        </div>
+        <div id="enhancerLoadingIndicator" class="loading-indicator" style="display: none;" data-lang-key="modal_ai_loading">Meningkatkan deskripsi proyek...</div>
+        <div id="enhancedResultsArea" class="ai-results-area"></div>
+        <div id="enhancerErrorMessage" class="message-box error" style="display: none;"></div>
+    </dialog>
+
+    <!-- AI Technical Consultant Modal (NEW FEATURE) -->
+    <dialog id="aiConsultantModal" class="ai-modal">
+        <h3 data-lang-key="modal_consultant_title">Konsultasi Teknis Cepat 🛠️</h3>
+        <p style="color: var(--subtitle-color); margin-bottom: 20px;" data-lang-key="modal_consultant_subtitle">
+            Masukkan pertanyaan teknis konstruksi atau manajemen proyek Anda (e.g., 3DCP, QC, Material).
+        </p>
+        <div class="form-group">
+            <label for="consultantQuestionInput" data-lang-key="modal_consultant_label">Pertanyaan Teknis:</label>
+            <textarea id="consultantQuestionInput" placeholder="Contoh: Tantangan apa yang paling umum dalam mencetak struktur melengkung dengan 3DCP?" rows="5" required></textarea>
+        </div>
+        <div class="form-actions">
+            <button id="consultantSubmitBtn" data-lang-key="modal_consultant_submit">Dapatkan Solusi Cepat 🛠️</button>
+            <button type="button" class="close-button" id="closeConsultantModal" data-lang-key="modal_ai_cancel">Batal</button>
+        </div>
+        <div id="consultantLoadingIndicator" class="loading-indicator" style="display: none;" data-lang-key="modal_consultant_loading">Menganalisis pertanyaan dan merumuskan jawaban...</div>
+        <div id="consultantResultsArea" class="ai-results-area"></div>
+        <div id="consultantErrorMessage" class="message-box error" style="display: none;"></div>
+    </dialog>
+
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" title="Kembali ke atas">⬆️</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- TRANSLATION DATA ---
+            const translations = {
+                'id': {
+                    'btn_view_cv': 'CV',
+                    // Navbar
+                    'nav_home': 'Home',
+                    'nav_about': 'Tentang Saya',
+                    'nav_portfolio': 'Portofolio Proyek',
+                    'nav_advantages': 'Keunggulan Layanan',
+                    'nav_specialization': 'Spesialisasi',
+                    'nav_contact': 'Hubungi Kami',
+                    // Header
+                    'title_main': 'Production & Quality Control Specialist | Construction & Project Manager',
+                    'title_subtitle': 'Profesional berorientasi hasil dengan keahlian teknis dalam 3DCP, Quality Control, dan Manajemen Proyek.',
+                    'stat1_num': '10+', 'stat1_label': 'Proyek Selesai',
+                    'stat2_num': '4+', 'stat2_label': 'Tahun Pengalaman Teknis',
+                    'stat3_num': '3DCP', 'stat3_label': 'Teknologi Inti',
+                    // About
+                    'about_title': 'Tentang Saya',
+                    'about_body': 'Sebagai seorang profesional yang berorientasi pada hasil, saya memiliki pengalaman solid di bidang manufaktur, operasional teknis, dan manajemen proyek. Saya terampil mengoperasikan mesin presisi (CNC, 3DCP, freeze dryer), mengawasi kontrol kualitas, dan memimpin tim. Latar belakang pendidikan Manajemen dan pengalaman langsung dalam strategi konten, periklanan TikTok, dan analisis algoritma menjadikan saya aset berharga dalam setiap proyek. Layanan premium saya berfokus pada penyampaian hasil proyek yang efisien, kualitas konstruksi yang unggul, dan kepuasan klien yang maksimal.',
+                    'about_key_skill_title': '🏆 Keahlian Utama:',
+                    'about_key_skill_desc': 'Memimpin operasi 3D Concrete Printing, mengelola rantai pasok material, dan memastikan implementasi standar kualitas yang ketat pada proyek konstruksi, didukung pengalaman Quality Control yang mendalam.',
+                    // Experience
+                    'exp_title_main': 'Pengalaman Profesional',
+                    'exp1_title': 'Operator Leader', 'exp1_company': 'Legends 3D (Tabanan, Bali)', 'exp1_duration': 'Mei 2025 - Sekarang', 'exp1_desc': '• Mengelola seluruh siklus proyek 3DCP, mulai dari persiapan lokasi, pengaturan mesin, hingga tahap akhir.<br>• Bertanggung jawab atas manajemen sumber daya dan pelaporan kemajuan proyek secara berkala.',
+                    'exp2_title': 'Freeze Dryer Technician & Quality Control (Part-Time)', 'exp2_company': 'Suplemen Organik', 'exp2_duration': 'November 2024 - Februari 2025', 'exp2_desc': '• Mengoperasikan mesin freeze drying untuk memastikan konsistensi, keamanan, dan standar premium produk.<br>• Melakukan inspeksi produk dan pemeliharaan rutin peralatan.',
+                    'exp3_title': 'Freelance Social Media Marketer', 'exp3_company': 'Klien Bervariasi', 'exp3_duration': 'Agustus 2024 - Maret 2025', 'exp3_desc': '• Mengunggah konten TikTok 3 kali sehari dengan *caption* dan *hashtag* yang relevan, fokus pada strategi *engagement* dan pertumbuhan.',
+                    'exp4_title': 'Operator - 3D Print Service Provider', 'exp4_company': 'PT. Basic Element Space (Tabanan, Bali)', 'exp4_duration': 'Juni 2024 - Februari 2025', 'exp4_desc': 'Mengoperasikan mesin cetak 3D dan membantu perakitan, instalasi, pemeliharaan, dan pengujian untuk memenuhi standar kualitas perusahaan.',
+                    'exp5_title': 'Quality Control', 'exp5_company': 'PT. Atsumitec Indonesia (Karawang, Jawa Barat)', 'exp5_duration': 'Juni 2023 - Mei 2024', 'exp5_desc': '• Melakukan inspeksi kualitas pada komponen otomotif dan mendokumentasikan ketidaksesuaian.<br>• Berkoordinasi dengan bagian produksi untuk menerapkan tindakan korektif.',
+                    'exp6_title': 'Machining, Welding, and Painting Specialist', 'exp6_company': 'PT. Astra Honda Motor (Karawang, Jawa Barat)', 'exp6_duration': 'Desember 2019 - Maret 2023', 'exp6_desc': 'Mengoperasikan mesin CNC, sistem pengelasan robotik, dan sistem pengecatan robotik semi-otomatis untuk memproduksi komponen sepeda motor.',
+                    // Portfolio
+                    'port_title_main': 'Portofolio Proyek Konstruksi',
+                    'port_subtitle': 'Menampilkan detail proyek konstruksi, implementasi teknologi, dan hasil akhir yang terjamin kualitasnya.',
+                    'btn_ai_enhancer': 'Tingkatkan Deskripsi Proyek dengan AI 💡',
+                    'proj1_title': '🏡 Proyek Pembangunan Villa Modern Bali (3DCP)',
+                    'proj1_desc': 'Memimpin tim operator dalam pembangunan villa menggunakan teknologi 3D Concrete Printing (3DCP). Proyek ini menyoroti efisiensi waktu, presisi struktural yang tinggi, dan inovasi dalam penggunaan material. Mengelola seluruh proses mulai dari kalibrasi mesin hingga pengawasan *finishing* untuk memastikan kualitas superior.',
+                    'proj1_stat1_num': '98%', 'proj1_stat1_label': 'Tingkat Akurasi QC',
+                    'proj1_stat2_num': '30%', 'proj1_stat2_label': 'Penghematan Waktu (Vs. Konvensional)',
+                    'proj1_stat3_num': '4 Mggu', 'proj1_stat3_label': 'Durasi Pencetakan Struktur',
+                    'proj2_title': '⚙️ Quality Control Manufaktur Otomotif',
+                    'proj2_desc': 'Bertanggung jawab sebagai Quality Control di PT. Atsumitec Indonesia, berfokus pada inspeksi komponen otomotif dan dokumentasi non-konformitas. Menerapkan protokol inspeksi yang ketat, termasuk penggunaan alat ukur presisi dan analisis data untuk memastikan setiap komponen memenuhi standar industri yang tinggi. Keberhasilan dalam meminimalkan cacat produksi.',
+                    'proj2_stat1_num': '0.05%', 'proj2_stat1_label': 'Defect Rate (Minimum)',
+                    'proj2_stat2_num': '6 Bln', 'proj2_stat2_label': 'Periode Tanpa Kegagalan Audit',
+                    'proj2_stat3_num': 'ISO 9001', 'proj2_stat3_label': 'Standar QC Diterapkan',
+                    'video_title': 'Video Proses Kerja',
+                    'video_subtitle': 'Lihat demonstrasi video keahlian teknis seperti pengoperasian 3DCP, CNC, atau inspeksi QC.',
+                    'video_note': '*Pastikan video yang diunggah ke GitHub berukuran kecil untuk kinerja web terbaik. Untuk video yang lebih besar, disarankan menggunakan YouTube atau Vimeo.',
+                    'visual_title_main': 'Visual & Wawasan Proyek',
+                    'visual_subtitle': 'Jelajahi aset visual tambahan dan wawasan kunci dari berbagai proyek teknis.',
+                    'visual_item1': 'Persiapan Material 3DCP', 'visual_item2': 'Operasi Mesin CNC',
+                    'visual_item3': 'Sistem Pengelasan Robotik', 'visual_item4': 'Laporan Quality Check Akhir',
+                    // Advantages
+                    'adv_title_main': 'Keunggulan Layanan & Nilai Jual Kami',
+                    'adv_subtitle': 'Pilih jasa kami untuk memastikan proyek konstruksi Anda berjalan efisien, inovatif, dan memenuhi standar kualitas tertinggi.',
+                    'adv1_title': 'Inovasi Konstruksi (3DCP)', 'adv1_desc': 'Penerapan teknologi 3D Concrete Printing untuk konstruksi yang lebih cepat, lebih presisi, dan lebih hemat biaya dibandingkan metode konvensional.',
+                    'adv2_title': 'Jaminan Kontrol Kualitas', 'adv2_desc': 'Mengadopsi standar QC manufaktur yang ketat (seperti otomotif) ke dalam proses konstruksi, memastikan produk akhir memiliki durabilitas dan akurasi yang superior.',
+                    'adv3_title': 'Efisiensi Proyek Terukur', 'adv3_desc': 'Fokus pada manajemen waktu dan sumber daya yang terstruktur untuk menjamin proyek selesai tepat waktu dan sesuai anggaran yang telah ditetapkan.',
+                    'adv4_title': 'Manajemen Lintas Disiplin', 'adv4_desc': 'Keahlian gabungan dalam operasional teknis (machining, welding) dan manajemen bisnis memberikan perspektif holistik untuk memecahkan masalah proyek yang kompleks.',
+                    'adv5_title': 'Fleksibilitas Anggaran', 'adv5_desc': 'Kami menawarkan skema proyek yang fleksibel dan transparan. Konsultasikan kebutuhan Anda untuk mendapatkan penawaran terbaik dan estimasi waktu yang jelas.',
+                    'adv6_title': 'Kemampuan Adaptasi Pasar', 'adv6_desc': 'Dilengkapi dengan kemampuan analisis tren (dari latar belakang SMM) untuk memastikan proyek Anda tidak hanya teknis solid, tetapi juga relevan dengan pasar properti dan tren desain saat ini.',
+                    // Services
+                    'services_title_main': 'Spesialisasi Teknis & Layanan',
+                    'serv1_title': 'Operasi 3D Concrete Printing (3DCP)', 'serv1_desc': 'Layanan penuh mulai dari desain cetak, persiapan *mix* material, pengoperasian mesin, hingga perakitan struktur. Kami adalah ahli di bidang teknologi ini.',
+                    'serv2_title': 'Manajemen dan Pengawasan QC', 'serv2_desc': 'Pengawasan kualitas menyeluruh untuk setiap tahap konstruksi atau manufaktur, memastikan akurasi dimensi, kekuatan material, dan kepatuhan standar.',
+                    'serv3_title': 'Perencanaan & Eksekusi Proyek', 'serv3_desc': 'Perencanaan jadwal, alokasi sumber daya, dan pengawasan eksekusi di lapangan untuk menjamin proyek berjalan mulus dan efisien.',
+                    'serv4_title': 'Keahlian Mesin Presisi', 'serv4_desc': 'Memberikan konsultasi dan solusi untuk pengoperasian dan perawatan mesin-mesin industri seperti CNC, welding robotik, dan sistem pengecatan otomatis.',
+                    'serv5_title': 'Efisiensi Biaya Proyek', 'serv5_desc': 'Menganalisis proses kerja untuk mengidentifikasi dan mengurangi biaya operasional tanpa mengorbankan kualitas dan *timeline* proyek.',
+                    // Skills
+                    'skills_title_main': 'Keahlian Inti & Spesialisasi',
+                    'skill1': '3D Concrete Printing (3DCP)', 'skill2': 'Quality Control (QC)',
+                    'skill3': 'Project Management', 'skill4': 'CNC Operation',
+                    'skill5': 'Robotic Welding & Painting', 'skill6': 'Material Procurement',
+                    'skill7': 'Freeze Dry Technology', 'skill8': 'Manajemen Tim Lapangan',
+                    'skill9': 'Business Strategy', 'skill10': 'Problem Solving Teknis',
+                    'skill11': 'Data Analysis (Social Media & QC)', 'skill12': 'ISO Standards Compliance',
+                    'btn_ai_consultant': 'Konsultan Teknis AI Cepat 🛠️',
+                    // Contact
+                    'contact_title_main': 'Mari Berkolaborasi!',
+                    'contact_subtitle': 'Siap memulai proyek konstruksi inovatif atau meningkatkan efisiensi operasional Anda? Hubungi saya hari ini.',
+                    'contact_email_title': 'Email', 'contact_email_desc': 'Kirim Pesan (Formulir)',
+                    'contact_linkedin_title': 'LinkedIn', 'contact_linkedin_desc': 'linkedin.com/in/nicolachristanto',
+                    'contact_whatsapp_title': 'WhatsApp', 'contact_whatsapp_desc': '0895329813921',
+                    'btn_cta_contact': 'Diskusikan Proyek Anda Sekarang',
+                    // Modals
+                    'modal_contact_title': 'Hubungi Kami',
+                    'modal_form_name': 'Nama Lengkap:',
+                    'modal_form_email': 'Email Anda:',
+                    'modal_form_subject': 'Subjek:',
+                    'modal_form_message': 'Pesan Anda:',
+                    'modal_form_submit': 'Kirim Pesan',
+                    'modal_form_cancel': 'Batal',
+                    'modal_ai_title': 'Tingkatkan Deskripsi Proyek dengan AI ✨',
+                    'modal_ai_subtitle': 'Masukkan deskripsi proyek singkat, dan AI akan membuatnya lebih profesional dan persuasif.',
+                    'modal_ai_desc_label': 'Deskripsi Proyek Saat Ini:',
+                    'modal_ai_tone_label': 'Nada yang Diinginkan (Opsional):',
+                    'modal_ai_enhance_btn': 'Tingkatkan Deskripsi ✨',
+                    'modal_ai_loading': 'Meningkatkan deskripsi proyek...',
+                    // New Consultant Modal Keys
+                    'modal_consultant_title': 'Konsultasi Teknis Cepat 🛠️',
+                    'modal_consultant_subtitle': 'Masukkan pertanyaan teknis konstruksi atau manajemen proyek Anda (e.g., 3DCP, QC, Material).',
+                    'modal_consultant_label': 'Pertanyaan Teknis:',
+                    'modal_consultant_submit': 'Dapatkan Solusi Cepat 🛠️',
+                    'modal_consultant_loading': 'Menganalisis pertanyaan dan merumuskan jawaban...',
+                    
+                    'form_success_msg': 'Pesan Anda berhasil terkirim! Saya akan menghubungi Anda segera.',
+                    'form_error_msg': 'Terjadi kesalahan saat mengirim pesan Anda. Silakan coba lagi nanti.'
+                },
+                'en': {
+                    'btn_view_cv': 'View CV',
+                    // Navbar
+                    'nav_home': 'Home',
+                    'nav_about': 'About Me',
+                    'nav_portfolio': 'Project Portfolio',
+                    'nav_advantages': 'Service Advantages',
+                    'nav_specialization': 'Specialization',
+                    'nav_contact': 'Contact Us',
+                    // Header
+                    'title_main': 'Production & Quality Control Specialist | Construction & Project Manager',
+                    'title_subtitle': 'Result-oriented professional with technical expertise in 3DCP, Quality Control, and Project Management.',
+                    'stat1_num': '10+', 'stat1_label': 'Projects Completed',
+                    'stat2_num': '4+', 'stat2_label': 'Years Technical Experience',
+                    'stat3_num': '3DCP', 'stat3_label': 'Core Technology',
+                    // About
+                    'about_title': 'About Me',
+                    'about_body': 'As a result-oriented professional, I have solid experience in manufacturing, technical operations, and project management. I am skilled in operating precision machinery (CNC, 3DCP, freeze dryer), overseeing quality control, and leading teams. My background in Management education and hands-on experience in content strategy, TikTok advertising, and algorithm analysis make me a valuable asset in any project. My premium service focuses on delivering efficient project results, superior construction quality, and maximum client satisfaction.',
+                    'about_key_skill_title': '🏆 Key Expertise:',
+                    'about_key_skill_desc': 'Leading 3D Concrete Printing operations, managing material supply chain, and ensuring strict quality standards implementation in construction projects, supported by in-depth Quality Control experience.',
+                    // Experience
+                    'exp_title_main': 'Professional Experience',
+                    'exp1_title': 'Operator Leader', 'exp1_company': 'Legends 3D (Tabanan, Bali)', 'exp1_duration': 'May 2025 - Present', 'exp1_desc': '• Managed the entire 3DCP project cycle, from site preparation and machine setup to the final stages.<br>• Responsible for resource management and periodic project progress reporting.',
+                    'exp2_title': 'Freeze Dryer Technician & Quality Control (Part-Time)', 'exp2_company': 'Organic Supplement', 'exp2_duration': 'Nov 2024 - Feb 2025', 'exp2_desc': '• Operated freeze-drying machinery to ensure consistency, safety, and premium product standards.<br>• Conducted product inspection and routine equipment maintenance.',
+                    'exp3_title': 'Freelance Social Media Marketer', 'exp3_company': 'Various Clients', 'exp3_duration': 'Aug 2024 - Mar 2025', 'exp3_desc': '• Uploaded TikTok content 3 times daily with relevant captions and hashtags, focusing on engagement strategy and growth.',
+                    'exp4_title': 'Operator - 3D Print Service Provider', 'exp4_company': 'PT. Basic Element Space (Tabanan, Bali)', 'exp4_duration': 'June 2024 - Feb 2025', 'exp4_desc': 'Operated 3D printing machinery and assisted with assembly, installation, maintenance, and testing to meet company quality standards.',
+                    'exp5_title': 'Quality Control', 'exp5_company': 'PT. Atsumitec Indonesia (Karawang, West Java)', 'exp5_duration': 'June 2023 - May 2024', 'exp5_desc': '• Conducted quality inspection on automotive components and documented non-conformance.<br>• Coordinated with the production department to implement corrective actions.',
+                    'exp6_title': 'Machining, Welding, and Painting Specialist', 'exp6_company': 'PT. Astra Honda Motor (Karawang, West Java)', 'exp6_duration': 'Dec 2019 - Mar 2023', 'exp6_desc': 'Operated CNC machines, robotic welding systems, and semi-automatic robotic painting systems to produce motorcycle components.',
+                    // Portfolio
+                    'port_title_main': 'Construction Project Portfolio',
+                    'port_subtitle': 'Showcasing construction project details, technology implementation, and assured quality results.',
+                    'btn_ai_enhancer': 'Enhance Project Description with AI 💡',
+                    'proj1_title': '🏡 Modern Bali Villa Construction Project (3DCP)',
+                    'proj1_desc': 'Led the operator team in building a villa using 3D Concrete Printing (3DCP) technology. This project highlights time efficiency, high structural precision, and material innovation. Managed the entire process from machine calibration to finishing oversight to ensure superior quality.',
+                    'proj1_stat1_num': '98%', 'proj1_stat1_label': 'QC Accuracy Rate',
+                    'proj1_stat2_num': '30%', 'proj1_stat2_label': 'Time Savings (Vs. Conventional)',
+                    'proj1_stat3_num': '4 Weeks', 'proj1_stat3_label': 'Structure Printing Duration',
+                    'proj2_title': '⚙️ Automotive Manufacturing Quality Control',
+                    'proj2_desc': 'Responsible for Quality Control at PT. Atsumitec Indonesia, focusing on automotive component inspection and non-conformance documentation. Implemented strict inspection protocols, including the use of precision measuring tools and data analysis to ensure every component meets high industry standards. Success in minimizing production defects.',
+                    'proj2_stat1_num': '0.05%', 'proj2_stat1_label': 'Defect Rate (Minimum)',
+                    'proj2_stat2_num': '6 Mos', 'proj2_stat2_label': 'Period Without Audit Failure',
+                    'proj2_stat3_num': 'ISO 9001', 'proj2_stat3_label': 'QC Standard Applied',
+                    'video_title': 'Work Process Video Showcase',
+                    'video_subtitle': 'View video demonstrations of technical expertise such as 3DCP operation, CNC, or QC inspection.',
+                    'video_note': '*Ensure videos uploaded to GitHub are small for best web performance. For larger videos, it is recommended to use YouTube or Vimeo.',
+                    'visual_title_main': 'Visuals & Project Insights',
+                    'visual_subtitle': 'Explore additional visual assets and key insights from various technical projects.',
+                    'visual_item1': '3DCP Material Preparation', 'visual_item2': 'CNC Machine Operation',
+                    'visual_item3': 'Robotic Welding System', 'visual_item4': 'Final Quality Check Report',
+                    // Advantages
+                    'adv_title_main': 'Service Excellence & Value Proposition',
+                    'adv_subtitle': 'Choose our services to ensure your construction project is efficient, innovative, and meets the highest quality standards.',
+                    'adv1_title': 'Construction Innovation (3DCP)', 'adv1_desc': 'Application of 3D Concrete Printing technology for faster, more precise, and more cost-effective construction compared to conventional methods.',
+                    'adv2_title': 'Quality Control Assurance', 'adv2_desc': 'Adopting strict manufacturing QC standards (like automotive) into the construction process, ensuring the final product has superior durability and accuracy.',
+                    'adv3_title': 'Measurable Project Efficiency', 'adv3_desc': 'Focus on structured time and resource management to guarantee projects are completed on schedule and within the established budget.',
+                    'adv4_title': 'Cross-Disciplinary Management', 'adv4_desc': 'Combined expertise in technical operations (machining, welding) and business management provides a holistic perspective for solving complex project issues.',
+                    'adv5_title': 'Budget Flexibility', 'adv5_desc': 'We offer flexible and transparent project schemes. Consult your needs to get the best quote and a clear time estimate.',
+                    'adv6_title': 'Market Adaptability', 'adv6_desc': 'Equipped with trend analysis capability (from SMM background) to ensure your project is not only technically solid but also relevant to current property market and design trends.',
+                    // Services
+                    'services_title_main': 'Technical Specializations & Services',
+                    'serv1_title': '3D Concrete Printing (3DCP) Operations', 'serv1_desc': 'Full service starting from print design, material mix preparation, machine operation, to structure assembly. We are experts in this technology.',
+                    'serv2_title': 'QC Management and Supervision', 'serv2_desc': 'Comprehensive quality control for every construction or manufacturing stage, ensuring dimensional accuracy, material strength, and standard compliance.',
+                    'serv3_title': 'Project Planning & Execution', 'serv3_desc': 'Scheduling, resource allocation, and on-site execution supervision to ensure projects run smoothly and efficiently.',
+                    'serv4_title': 'Precision Machine Expertise', 'serv4_desc': 'Providing consultation and solutions for the operation and maintenance of industrial machinery such as CNC, robotic welding, and automatic painting systems.',
+                    'serv5_title': 'Project Cost Efficiency', 'serv5_desc': 'Analyzing work processes to identify and reduce operational costs without compromising quality and project *timeline*.',
+                    // Skills
+                    'skills_title_main': 'Core Skills & Expertise',
+                    'skill1': '3D Concrete Printing (3DCP)', 'skill2': 'Quality Control (QC)',
+                    'skill3': 'Project Management', 'skill4': 'CNC Operation',
+                    'skill5': 'Robotic Welding & Painting', 'skill6': 'Material Procurement',
+                    'skill7': 'Freeze Dry Technology', 'skill8': 'Field Team Management',
+                    'skill9': 'Business Strategy', 'skill10': 'Technical Problem Solving',
+                    'skill11': 'Data Analysis (Social Media & QC)', 'skill12': 'ISO Standards Compliance',
+                    'btn_ai_consultant': 'Quick AI Technical Consultant 🛠️',
+                    // Contact
+                    'contact_title_main': "Let's Collaborate!",
+                    'contact_subtitle': 'Ready to start an innovative construction project or enhance your operational efficiency? Contact me today.',
+                    'contact_email_title': 'Email', 'contact_email_desc': 'Send Message (Form)',
+                    'contact_linkedin_title': 'LinkedIn', 'contact_linkedin_desc': 'linkedin.com/in/nicolachristanto',
+                    'contact_whatsapp_title': 'WhatsApp', 'contact_whatsapp_desc': '0895329813921',
+                    'btn_cta_contact': 'Discuss Your Project Now',
+                    // Modals
+                    'modal_contact_title': 'Contact Us',
+                    'modal_form_name': 'Full Name:',
+                    'modal_form_email': 'Your Email:',
+                    'modal_form_subject': 'Subject:',
+                    'modal_form_message': 'Your Message:',
+                    'modal_form_submit': 'Send Message',
+                    'modal_form_cancel': 'Cancel',
+                    'modal_ai_title': 'Enhance Project Description with AI ✨',
+                    'modal_ai_subtitle': 'Enter a brief project description, and the AI will make it more professional and persuasive.',
+                    'modal_ai_desc_label': 'Current Project Description:',
+                    'modal_ai_tone_label': 'Desired Tone (Optional):',
+                    'modal_ai_enhance_btn': 'Enhance Description ✨',
+                    'modal_ai_loading': 'Enhancing project description...',
+                    // New Consultant Modal Keys
+                    'modal_consultant_title': 'Quick Technical Consultation 🛠️',
+                    'modal_consultant_subtitle': 'Enter your construction or project management technical question (e.g., 3DCP, QC, Materials).',
+                    'modal_consultant_label': 'Technical Question:',
+                    'modal_consultant_submit': 'Get Quick Solution 🛠️',
+                    'modal_consultant_loading': 'Analyzing question and formulating answer...',
+                    
+                    'form_success_msg': 'Your message has been sent successfully! I will contact you shortly.',
+                    'form_error_msg': 'An error occurred while sending your message. Please try again later.'
+                }
+            };
+
+            let currentLang = localStorage.getItem('lang') || 'id'; // Default to Indonesian
+
+            // --- LANGUAGE SWITCHING LOGIC ---
+            const languageToggleBtn = document.getElementById('languageToggle');
+
+            function switchLanguage(lang) {
+                // Update all elements with data-lang-key
+                document.querySelectorAll('[data-lang-key]').forEach(element => {
+                    const key = element.getAttribute('data-lang-key');
+                    const translation = translations[lang][key];
+                    if (translation) {
+                        // Check if the element has children (e.g., span inside a button) to prevent replacing structure
+                        if (element.children.length === 0 || element.tagName === 'A' || element.tagName === 'BUTTON') {
+                             // Use textContent for safety, but check for potential HTML in translation value
+                            element.innerHTML = translation;
+                        } else if (element.tagName === 'P' || element.tagName === 'DIV' || element.tagName === 'LI' || element.tagName === 'SPAN' || element.tagName === 'A') {
+                            element.innerHTML = translation;
+                        } else {
+                            element.textContent = translation;
+                        }
+                    }
+                });
+
+                // Update special placeholder/attribute texts
+                document.getElementById('projectDescriptionInput').setAttribute('placeholder', lang === 'id' ? 'Contoh: Saya membangun villa di Bali menggunakan 3D printing, selesai dalam 4 minggu.' : 'Example: I built a villa in Bali using 3D printing, finished in 4 weeks.');
+                document.getElementById('desiredToneInput').setAttribute('placeholder', lang === 'id' ? 'Contoh: profesional, berorientasi hasil, inovatif, ringkas' : 'Example: professional, result-oriented, innovative, concise');
+                document.getElementById('consultantQuestionInput').setAttribute('placeholder', lang === 'id' ? 'Contoh: Tantangan apa yang paling umum dalam mencetak struktur melengkung dengan 3DCP?' : 'Example: What are the most common challenges when printing curved structures with 3DCP?');
+                document.getElementById('cvButton').title = lang === 'id' ? 'Lihat CV Saya' : 'View My CV';
+
+
+                // Update flag/icon on button
+                languageToggleBtn.textContent = lang === 'id' ? '🇬🇧' : '🇮🇩';
+                
+                currentLang = lang;
+                localStorage.setItem('lang', lang);
+            }
+
+            // Event listener for language toggle
+            languageToggleBtn.addEventListener('click', () => {
+                const newLang = (currentLang === 'id') ? 'en' : 'id';
+                switchLanguage(newLang);
+            });
+
+            // Initialize language on load
+            switchLanguage(currentLang);
+
+
+            // --- THEME TOGGLE LOGIC (KEPT AS IS) ---
+            const themeToggleBtn = document.getElementById('themeToggle');
+            const body = document.body;
+
+            function setTheme(theme) {
+                if (theme === 'dark') {
+                    body.classList.add('dark-mode');
+                    themeToggleBtn.textContent = '🌙'; // Moon icon for dark mode
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    body.classList.remove('dark-mode');
+                    themeToggleBtn.textContent = '☀️'; // Sun icon for light mode
+                    localStorage.setItem('theme', 'light');
+                }
+            }
+
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                setTheme(savedTheme);
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                setTheme('dark');
+            } else {
+                setTheme('light'); 
+            }
+
+            themeToggleBtn.addEventListener('click', () => {
+                if (body.classList.contains('dark-mode')) {
+                    setTheme('light');
+                } else {
+                    setTheme('dark');
+                }
+            });
+
+            // Draggable Theme Toggle Button Logic (Simplified for stability)
+            let isDragging = false;
+            let currentX;
+            let currentY;
+            let initialX;
+            let initialY;
+            let xOffset = 0; 
+            let yOffset = 0; 
+
+            const getTranslateValues = (element) => {
+                const style = window.getComputedStyle(element);
+                const transform = style.transform || style.webkitTransform || style.mozTransform;
+
+                if (transform === 'none' || !transform) {
+                    return { x: 0, y: 0 };
+                }
+
+                const matrix = transform.match(/matrix.*\((.+)\)/);
+                if (matrix) {
+                    const matrixValues = matrix[1].split(', ').map(parseFloat);
+                    return { x: matrixValues[12] || matrixValues[4], y: matrixValues[13] || matrixValues[5] };
+                }
+                return { x: 0, y: 0 };
+            };
+
+
+            themeToggleBtn.addEventListener("touchstart", dragStart);
+            themeToggleBtn.addEventListener("touchend", dragEnd);
+            themeToggleBtn.addEventListener("touchmove", drag);
+
+            themeToggleBtn.addEventListener("mousedown", dragStart);
+            themeToggleBtn.addEventListener("mouseup", dragEnd);
+            themeToggleBtn.addEventListener("mousemove", drag);
+
+            function dragStart(e) {
+                const currentTransform = getTranslateValues(e.target); // Use e.target for themeToggleBtn or languageToggleBtn
+                xOffset = currentTransform.x;
+                yOffset = currentTransform.y;
+
+                if (e.type === "touchstart") {
+                    initialX = e.touches[0].clientX - xOffset;
+                    initialY = e.touches[0].clientY - yOffset;
+                } else {
+                    initialX = e.clientX - xOffset;
+                    initialY = e.clientY - yOffset; 
+                }
+
+                if (e.target.id === 'themeToggle' || e.target.id === 'languageToggle') {
+                    isDragging = true;
+                    e.target.style.cursor = 'grabbing';
+                }
+            }
+
+            function dragEnd(e) {
+                isDragging = false;
+                if (e.target.id === 'themeToggle') {
+                    localStorage.setItem('themeToggleOffsetX', xOffset);
+                    localStorage.setItem('themeToggleOffsetY', yOffset);
+                } else if (e.target.id === 'languageToggle') {
+                    localStorage.setItem('langToggleOffsetX', xOffset);
+                    localStorage.setItem('langToggleOffsetY', yOffset);
+                }
+                e.target.style.cursor = 'grab';
+            }
+
+            function drag(e) {
+                if (isDragging) {
+                    e.preventDefault(); 
+
+                    if (e.type === "touchmove") {
+                        currentX = e.touches[0].clientX - initialX;
+                        currentY = e.touches[0].clientY - initialY;
+                    } else {
+                        currentX = e.clientX - initialX;
+                        currentY = e.clientY - initialY;
+                    }
+
+                    xOffset = currentX;
+                    yOffset = currentY;
+
+                    e.target.style.transform = `translate3d(${xOffset}px, ${yOffset}px, 0)`;
+                }
+            }
+            
+            // Apply saved position on startup for both buttons
+            const loadSavedPosition = (button, prefix) => {
+                const savedOffsetX = localStorage.getItem(`${prefix}OffsetX`);
+                const savedOffsetY = localStorage.getItem(`${prefix}OffsetY`);
+
+                if (savedOffsetX !== null && savedOffsetY !== null) {
+                    const x = parseFloat(savedOffsetX);
+                    const y = parseFloat(savedOffsetY);
+                    button.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+                    button.style.top = 'auto'; // Disable fixed positioning override by CSS
+                    button.style.right = 'auto';
+                    button.style.left = 'auto';
+                    button.style.bottom = 'auto';
+                    button.style.cursor = 'grab';
+                }
+            };
+            
+            loadSavedPosition(themeToggleBtn, 'themeToggle');
+            loadSavedPosition(languageToggleBtn, 'langToggle');
+
+
+            // --- PAGE NAVIGATION & CONTACT MODAL LOGIC (KEPT AS IS) ---
+            const navLinks = document.querySelectorAll('.navbar a');
+            const sections = document.querySelectorAll('.page-section'); 
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('data-page'); 
+                    const targetElement = document.getElementById(targetId);
+
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            const observerOptions = {
+                root: null, 
+                rootMargin: '0px 0px -50% 0px', 
+                threshold: 0 
+            };
+
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => link.classList.remove('active-nav'));
+                        const activeLink = document.querySelector(`.navbar a[data-page="${entry.target.id}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('active-nav');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+
+
+            const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+            
+            window.onscroll = function() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    scrollToTopBtn.style.display = "block";
+                } else {
+                    scrollToTopBtn.style.display = "none";
+                }
+            };
+
+            scrollToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            const contactFormModal = document.getElementById('contactFormModal');
+            const emailContactTrigger = document.getElementById('emailContactTrigger');
+            const closeModalButton = document.getElementById('closeModal');
+            const contactForm = document.getElementById('contactForm');
+            const formMessage = document.getElementById('formMessage');
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+
+            if (emailContactTrigger) {
+                emailContactTrigger.addEventListener('click', () => {
+                    contactFormModal.showModal();
+                    formMessage.style.display = 'none';
+                    formMessage.className = 'message-box';
+                    contactForm.reset();
+                    submitButton.textContent = translations[currentLang]['modal_form_submit'];
+                    submitButton.disabled = false;
+                });
+            }
+
+            if (closeModalButton) {
+                closeModalButton.addEventListener('click', () => {
+                    contactFormModal.close();
+                });
+            }
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', async function(event) {
+                    event.preventDefault();
+                    formMessage.style.display = 'none';
+                    submitButton.textContent = currentLang === 'id' ? 'Mengirim...' : 'Sending...';
+                    submitButton.disabled = true;
+
+                    const form = event.target;
+                    const formspreeUrl = form.action;
+                    const formData = new FormData(form);
+
+                    try {
+                        const maxRetries = 3;
+                        let delay = 1000;
+                        let response;
+
+                        for (let attempt = 0; attempt < maxRetries; attempt++) {
+                            response = await fetch(formspreeUrl, {
+                                method: 'POST',
+                                body: formData,
+                                headers: { 'Accept': 'application/json' }
+                            });
+
+                            if (response.ok) {
+                                break; 
+                            }
+
+                            if (attempt < maxRetries - 1) {
+                                await new Promise(resolve => setTimeout(resolve, delay));
+                                delay *= 2; 
+                            }
+                        }
+
+                        const result = await response.json();
+
+                        if (response.ok && result.ok) {
+                            formMessage.textContent = translations[currentLang]['form_success_msg'];
+                            formMessage.className = 'message-box success';
+                            contactForm.reset();
+                            setTimeout(() => {
+                                contactFormModal.close();
+                                formMessage.style.display = 'none';
+                            }, 2000);
+                        } else {
+                            let errorMessage = translations[currentLang]['form_error_msg'];
+                            if (result.errors) {
+                                errorMessage = result.errors.map(err => err.message).join(', ');
+                            } else if (result.error) {
+                                errorMessage = result.error;
+                            }
+                            formMessage.textContent = errorMessage;
+                            formMessage.className = 'message-box error';
+                            console.error('Formspree API error:', result);
+                        }
+
+                    } catch (error) {
+                        formMessage.textContent = currentLang === 'id' ? 'Error koneksi. Silakan periksa koneksi internet Anda atau coba lagi nanti.' : 'Connection error. Please check your internet or try again later.';
+                        formMessage.style.display = 'block';
+                        console.error('Error submitting form:', error);
+                    } finally {
+                        formMessage.style.display = 'block';
+                        submitButton.textContent = translations[currentLang]['modal_form_submit'];
+                        submitButton.disabled = false;
+                    }
+                });
+            }
+
+            // Lightbox functionality 
+            const imageLightbox = document.getElementById('imageLightbox');
+            const lightboxImg = imageLightbox.querySelector('.lightbox-img');
+            const lightboxCloseBtn = imageLightbox.querySelector('.lightbox-close-btn');
+            const lightboxPrevBtn = imageLightbox.querySelector('.lightbox-prev-btn');
+            const lightboxNextBtn = imageLightbox.querySelector('.lightbox-next-btn');
+            let currentImageIndex;
+            let galleryImages = [];
+
+            function openLightbox(imgSrc, index, imagesArray) {
+                lightboxImg.src = imgSrc;
+                currentImageIndex = index;
+                galleryImages = imagesArray; 
+
+                imageLightbox.showModal();
+                updateLightboxNavButtons();
+            }
+
+            function closeLightbox() {
+                imageLightbox.close();
+            }
+
+            function navigateLightbox(direction) {
+                currentImageIndex += direction;
+                if (currentImageIndex < 0) {
+                    currentImageIndex = galleryImages.length - 1;
+                } else if (currentImageIndex >= galleryImages.length) {
+                    currentImageIndex = 0;
+                }
+                lightboxImg.src = galleryImages[currentImageIndex];
+                updateLightboxNavButtons();
+            }
+
+            function updateLightboxNavButtons() {
+                lightboxPrevBtn.style.display = galleryImages.length > 1 ? 'block' : 'none';
+                lightboxNextBtn.style.display = galleryImages.length > 1 ? 'block' : 'none';
+            }
+
+            document.querySelectorAll('.project-image img, .additional-photos-section .photo-item img').forEach((img) => {
+                img.addEventListener('click', () => {
+                    const allImagesInCurrentSection = Array.from(img.closest('.section').querySelectorAll('img')).map(el => el.src);
+                    const clickedIndex = allImagesInCurrentSection.indexOf(img.src);
+                    
+                    openLightbox(img.src, clickedIndex, allImagesInCurrentSection);
+                });
+            });
+
+            lightboxCloseBtn.addEventListener('click', closeLightbox);
+            lightboxPrevBtn.addEventListener('click', () => navigateLightbox(-1));
+            lightboxNextBtn.addEventListener('click', () => navigateLightbox(1));
+
+            imageLightbox.addEventListener('click', function(event) {
+                if (event.target === imageLightbox) {
+                    closeLightbox();
+                }
+            });
+
+
+            // --- AI PROJECT ENHANCER LOGIC ---
+            const projectEnhancerModal = document.getElementById('projectEnhancerModal');
+            const enhanceProjectTriggerBtn = document.getElementById('enhanceProjectTriggerBtn'); 
+            const closeEnhancerModalBtn = document.getElementById('closeEnhancerModal');
+            const projectDescriptionInput = document.getElementById('projectDescriptionInput');
+            const desiredToneInput = document.getElementById('desiredToneInput');
+            const enhanceDescriptionBtn = document.getElementById('enhanceDescriptionBtn');
+            const enhancerLoadingIndicator = document.getElementById('enhancerLoadingIndicator');
+            const enhancedResultsArea = document.getElementById('enhancedResultsArea');
+            const enhancerErrorMessage = document.getElementById('enhancerErrorMessage');
+
+            // Open AI Project Enhancer Modal
+            if (enhanceProjectTriggerBtn) {
+                enhanceProjectTriggerBtn.addEventListener('click', () => {
+                    projectEnhancerModal.showModal();
+                    enhancedResultsArea.innerHTML = ''; 
+                    enhancerErrorMessage.style.display = 'none'; 
+                    enhancerLoadingIndicator.style.display = 'none'; 
+                    projectDescriptionInput.value = ''; 
+                    desiredToneInput.value = '';
+                    enhanceDescriptionBtn.disabled = false;
+                    enhanceDescriptionBtn.textContent = translations[currentLang]['modal_ai_enhance_btn'];
+                });
+            }
+
+            // Close AI Project Enhancer Modal
+            if (closeEnhancerModalBtn) {
+                closeEnhancerModalBtn.addEventListener('click', () => {
+                    projectEnhancerModal.close();
+                });
+            }
+
+            // Enhance Description Button Click
+            if (enhanceDescriptionBtn) {
+                enhanceDescriptionBtn.addEventListener('click', async () => {
+                    const description = projectDescriptionInput.value.trim();
+                    const tone = desiredToneInput.value.trim();
+
+                    if (!description) {
+                        enhancerErrorMessage.textContent = currentLang === 'id' ? 'Mohon masukkan deskripsi proyek.' : 'Please enter a project description.';
+                        enhancerErrorMessage.style.display = 'block';
+                        return;
+                    }
+
+                    enhancedResultsArea.innerHTML = ''; 
+                    enhancerErrorMessage.style.display = 'none';
+                    enhancerLoadingIndicator.style.display = 'block'; 
+                    enhancerLoadingIndicator.textContent = currentLang === 'id' ? 'Meningkatkan deskripsi proyek...' : 'Enhancing project description...';
+                    enhanceDescriptionBtn.disabled = true;
+                    enhanceDescriptionBtn.textContent = currentLang === 'id' ? 'Meningkatkan...' : 'Enhancing...';
+
+                    let prompt = `Enhance the following construction/technical project description for a professional portfolio.`;
+                    if (tone) {
+                        prompt += ` The tone should be "${tone}".`;
+                    }
+                    prompt += ` Make it more compelling, detailed, and impactful. Original description: "${description}"`;
+                    prompt += ` Respond in ${currentLang === 'id' ? 'Indonesian' : 'English'}.`;
+
+                    try {
+                        const chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
+                        const payload = { contents: chatHistory };
+                        const apiKey = ""; 
+                        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                        const maxRetries = 3;
+                        let delay = 1000;
+                        let response;
+
+                        for (let attempt = 0; attempt < maxRetries; attempt++) {
+                            response = await fetch(apiUrl, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(payload)
+                            });
+
+                            if (response.ok) {
+                                break; 
+                            }
+
+                            if (attempt < maxRetries - 1) {
+                                await new Promise(resolve => setTimeout(resolve, delay));
+                                delay *= 2; 
+                            }
+                        }
+                        
+                        const result = await response.json();
+
+                        if (result.candidates && result.candidates.length > 0 &&
+                            result.candidates[0].content && result.candidates[0].content.parts &&
+                            result.candidates[0].content.parts.length > 0) {
+                            const text = result.candidates[0].content.parts[0].text;
+                            enhancedResultsArea.innerHTML = `<pre>${text}</pre>`; 
+                        } else {
+                            enhancerErrorMessage.textContent = currentLang === 'id' ? 'Gagal menghasilkan deskripsi. Silakan coba lagi.' : 'Could not generate description. Please try again.';
+                            enhancerErrorMessage.style.display = 'block';
+                            console.error('Gemini API response structure unexpected:', result);
+                        }
+                    } catch (error) {
+                        enhancerErrorMessage.textContent = currentLang === 'id' ? 'Error koneksi ke layanan AI. Silakan coba lagi nanti.' : 'Error connecting to AI service. Please try again later.';
+                        enhancerErrorMessage.style.display = 'block';
+                        console.error('Error calling Gemini API:', error);
+                    } finally {
+                        enhancerLoadingIndicator.style.display = 'none'; 
+                        enhanceDescriptionBtn.disabled = false;
+                        enhanceDescriptionBtn.textContent = translations[currentLang]['modal_ai_enhance_btn'];
+                    }
+                });
+            }
+
+            // --- AI CONSULTANT LOGIC (NEW FEATURE) ---
+            const aiConsultantModal = document.getElementById('aiConsultantModal');
+            const aiConsultantTriggerBtn = document.getElementById('aiConsultantTriggerBtn'); 
+            const closeConsultantModalBtn = document.getElementById('closeConsultantModal');
+            const consultantQuestionInput = document.getElementById('consultantQuestionInput');
+            const consultantSubmitBtn = document.getElementById('consultantSubmitBtn');
+            const consultantLoadingIndicator = document.getElementById('consultantLoadingIndicator');
+            const consultantResultsArea = document.getElementById('consultantResultsArea');
+            const consultantErrorMessage = document.getElementById('consultantErrorMessage');
+
+            // Open AI Consultant Modal
+            if (aiConsultantTriggerBtn) {
+                aiConsultantTriggerBtn.addEventListener('click', () => {
+                    aiConsultantModal.showModal();
+                    consultantResultsArea.innerHTML = ''; 
+                    consultantErrorMessage.style.display = 'none'; 
+                    consultantLoadingIndicator.style.display = 'none'; 
+                    consultantQuestionInput.value = ''; 
+                    consultantSubmitBtn.disabled = false;
+                    consultantSubmitBtn.textContent = translations[currentLang]['modal_consultant_submit'];
+                });
+            }
+
+            // Close AI Consultant Modal
+            if (closeConsultantModalBtn) {
+                closeConsultantModalBtn.addEventListener('click', () => {
+                    aiConsultantModal.close();
+                });
+            }
+
+            // Submit Consultant Question
+            if (consultantSubmitBtn) {
+                consultantSubmitBtn.addEventListener('click', async () => {
+                    const question = consultantQuestionInput.value.trim();
+
+                    if (!question) {
+                        consultantErrorMessage.textContent = currentLang === 'id' ? 'Mohon masukkan pertanyaan teknis.' : 'Please enter a technical question.';
+                        consultantErrorMessage.style.display = 'block';
+                        return;
+                    }
+
+                    consultantResultsArea.innerHTML = ''; 
+                    consultantErrorMessage.style.display = 'none';
+                    consultantLoadingIndicator.style.display = 'block'; 
+                    consultantLoadingIndicator.textContent = translations[currentLang]['modal_consultant_loading'];
+                    consultantSubmitBtn.disabled = true;
+                    consultantSubmitBtn.textContent = currentLang === 'id' ? 'Mencari Solusi...' : 'Finding Solution...';
+
+                    let prompt = `Act as a world-class technical consultant specializing in 3D Concrete Printing, Quality Control, and Construction Project Management. Given the following technical question, provide a precise, action-oriented, and concise answer (max 3 paragraphs). Question: "${question}"`;
+                    prompt += ` Respond in ${currentLang === 'id' ? 'Indonesian' : 'English'}.`;
+
+                    try {
+                        const chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
+                        const payload = { 
+                            contents: chatHistory,
+                            // Use Google Search for up-to-date and grounded information
+                            tools: [{ "google_search": {} }],
+                            systemInstruction: { parts: [{ text: `You are an expert construction consultant. Provide factual, precise, and practical advice.` }] },
+                        };
+                        const apiKey = ""; 
+                        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+
+                        const maxRetries = 3;
+                        let delay = 1000;
+                        let response;
+
+                        for (let attempt = 0; attempt < maxRetries; attempt++) {
+                            response = await fetch(apiUrl, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(payload)
+                            });
+
+                            if (response.ok) {
+                                break; 
+                            }
+
+                            if (attempt < maxRetries - 1) {
+                                await new Promise(resolve => setTimeout(resolve, delay));
+                                delay *= 2; 
+                            }
+                        }
+                        
+                        const result = await response.json();
+                        const candidate = result.candidates?.[0];
+
+                        if (candidate && candidate.content?.parts?.[0]?.text) {
+                            const text = candidate.content.parts[0].text;
+                            let sourcesHtml = '';
+                            const groundingMetadata = candidate.groundingMetadata;
+                            
+                            if (groundingMetadata && groundingMetadata.groundingAttributions) {
+                                const sources = groundingMetadata.groundingAttributions
+                                    .map(attribution => ({
+                                        uri: attribution.web?.uri,
+                                        title: attribution.web?.title,
+                                    }))
+                                    .filter(source => source.uri && source.title);
+
+                                if (sources.length > 0) {
+                                    sourcesHtml = `<div style="margin-top: 15px; font-size: 0.85em; color: var(--subtitle-color);">
+                                        <strong>Sumber:</strong>
+                                        <ul>
+                                            ${sources.map((src, index) => `<li><a href="${src.uri}" target="_blank" style="color: inherit; text-decoration: underline;">${src.title || 'Link'}</a></li>`).join('')}
+                                        </ul>
+                                    </div>`;
+                                }
+                            }
+                            
+                            consultantResultsArea.innerHTML = `<pre>${text}</pre>${sourcesHtml}`; 
+                        } else {
+                            consultantErrorMessage.textContent = currentLang === 'id' ? 'Gagal menghasilkan solusi. Silakan coba lagi.' : 'Failed to generate solution. Please try again.';
+                            consultantErrorMessage.style.display = 'block';
+                            console.error('Gemini API response structure unexpected:', result);
+                        }
+                    } catch (error) {
+                        consultantErrorMessage.textContent = currentLang === 'id' ? 'Error koneksi ke layanan AI. Silakan coba lagi nanti.' : 'Error connecting to AI service. Please try again later.';
+                        consultantErrorMessage.style.display = 'block';
+                        console.error('Error calling Gemini API:', error);
+                    } finally {
+                        consultantLoadingIndicator.style.display = 'none'; 
+                        consultantSubmitBtn.disabled = false;
+                        consultantSubmitBtn.textContent = translations[currentLang]['modal_consultant_submit'];
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
